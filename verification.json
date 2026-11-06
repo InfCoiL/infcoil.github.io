@@ -87,5 +87,9 @@
     "errors": []
   },
   "scientific_text": "SFPO terminology, phase lengths, table protocol and historical clip labels checked against supplied manuscript and media manifest",
-  "media": "Existing assets unchanged; no new policy training or video generation in this revision"
+  "media": "Existing assets unchanged; no new policy training or video generation in this revision",
+  "primary_video_playback": {
+    "preload": "none",
+    "bothVideosPlay": true
+  }
 }

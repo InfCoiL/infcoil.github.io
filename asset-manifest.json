@@ -249,7 +249,7 @@
   },
   "index.html": {
     "bytes": 20570,
-    "sha256": "33d0cc7165ca9169e6119c57ba71a9251363c0e19e5ec970fe6193141ecbde95"
+    "sha256": "12bbad07541a095cf63c5e2eb6f2688dfc03bd4efcf32a1c52c536a4a2b89541"
   },
   "playground.css": {
     "bytes": 2750,
@@ -308,7 +308,7 @@
     "sha256": "e7fca2fe9e7670a828af9b28084669a5909445b7f36f1f26cee9bf8f2961c32c"
   },
   "verification.json": {
-    "bytes": 2176,
-    "sha256": "274ec5368319be3eda3af3d3aaf94cb42cf9630aadfe16a0663f3a3a0cf1b57f"
+    "bytes": 2261,
+    "sha256": "831db96704d66bfe8040f94159d815aa2e6c69dad3b106a0cd4cbe1562794e8e"
   }
 }
