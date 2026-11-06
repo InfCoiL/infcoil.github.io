@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import {drawCelebration,CELEBRATION_SECONDS} from './celebration-overlay.js';
 const RED=0xd94335,GREEN=0x17964e;
 export function scanGoalEvents(raw,frames,goals){
   const objectErrors=[],pelvisErrors=[];let stable=0,arrival=-1;
@@ -16,18 +16,14 @@ export function scanGoalEvents(raw,frames,goals){
 export class GoalEffects{
   constructor(scene,objectMaterials,pelvisMaterials){
     this.objectMaterials=objectMaterials;this.pelvisMaterials=pelvisMaterials;
-    this.group=new THREE.Group();scene.add(this.group);
-    this.badge=document.createElement('div');this.badge.id='goal-celebration';this.badge.hidden=true;this.badge.setAttribute('role','status');this.badge.textContent='🎉 Targets reached';document.getElementById('viewport').appendChild(this.badge);
+    this.canvas=document.createElement('canvas');this.canvas.id='goal-confetti';this.canvas.setAttribute('aria-hidden','true');document.getElementById('viewport').appendChild(this.canvas);this.context=this.canvas.getContext('2d');this.group={visible:false};
+    this.badge=document.createElement('div');this.badge.id='goal-celebration';this.badge.hidden=true;this.badge.setAttribute('role','status');this.badge.textContent='Targets reached!' ;document.getElementById('viewport').appendChild(this.badge);
     this.reduced=matchMedia('(prefers-reduced-motion: reduce)');
-    const colors=[0xf0b93e,0x17964e,0xea7254,0x459edb,0xf8e4af];
-    const geometry=new THREE.PlaneGeometry(.045,.018);
-    const materials=colors.map(color=>new THREE.MeshBasicMaterial({color,side:THREE.DoubleSide}));
-    this.particles=Array.from({length:70},(_,i)=>{const mesh=new THREE.Mesh(geometry,materials[i%5]);this.group.add(mesh);return {mesh,angle:i*2.399963,radial:.5+(i%9)/12,vz:1.6+(i%11)/12,delay:(i%7)*.018};});
     this.visible=true;this.reset();
   }
   setCase(raw,frames,goals){this.goals=goals;this.timeline=scanGoalEvents(raw,frames,goals);this.reset();}
-  reset(){this.previousFrame=-1;this.triggered=false;this.bursts=0;this.started=null;this.reached=false;this.badge.hidden=true;this.group.visible=false;}
-  setVisible(visible){this.visible=visible;this.badge.hidden=!visible||!this.reached;if(!visible)this.group.visible=false;}
+  reset(){this.previousFrame=-1;this.triggered=false;this.bursts=0;this.started=null;this.reached=false;this.badge.hidden=true;this.group.visible=false;this.clear();}
+  setVisible(visible){this.visible=visible;this.badge.hidden=!visible||!this.reached;if(!visible)this.group.visible=false;this.clear();}
   update(frame,objectPosition,pelvisPosition,sandbox=false){
     if(!this.timeline)return;
     if(frame<this.previousFrame)this.reset();
@@ -45,11 +41,14 @@ export class GoalEffects{
     if(this.reached&&!this.triggered){this.triggered=true;this.bursts++;this.started=performance.now()/1000;}
     if(!this.reached)this.group.visible=false;
   }
+  clear(){this.context.clearRect(0,0,this.canvas.width,this.canvas.height);}
   tick(now){
-    const age=now/1000-this.started;this.group.visible=this.visible&&this.reached&&this.started!==null&&age<1.5&&!this.reduced.matches;
-    if(!this.group.visible)return;
-    const g=this.goals.object_goal,p=this.goals.pelvis_goal;
-    for(const part of this.particles){const t=age-part.delay;part.mesh.visible=t>=0;if(t<0)continue;part.mesh.position.set((g[0]+p[0])/2+Math.cos(part.angle)*part.radial*t,(g[1]+p[1])/2+Math.sin(part.angle)*part.radial*t,Math.max(1,g[2])+.25+part.vz*t-2.6*t*t);part.mesh.rotation.set(part.angle+t*3,part.angle*.7+t*5,t*2);part.mesh.scale.setScalar(t<1.1?1:Math.max(0,(1.5-t)/.4));}
+    const age=now/1000-this.started;
+    this.group.visible=this.visible&&this.reached&&this.started!==null&&age<CELEBRATION_SECONDS&&!this.reduced.matches;
+    if(!this.group.visible){this.clear();return;}
+    const width=this.canvas.clientWidth,height=this.canvas.clientHeight;
+    if(this.canvas.width!==width||this.canvas.height!==height){this.canvas.width=width;this.canvas.height=height;}
+    drawCelebration(this.context,width,height,age,{banner:false});
   }
   get state(){return {objectReached:this.objectReached,pelvisReached:this.pelvisReached,objectError:this.objectError,pelvisError:this.pelvisError,arrivalFrame:this.timeline?.arrival,celebrating:this.group.visible,targetsReached:this.reached,bursts:this.bursts};}
 }

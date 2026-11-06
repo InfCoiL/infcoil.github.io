@@ -84,8 +84,8 @@
     "sha256": "46c70c896285ee3a95b5989f946b94de57c490623b577dc1538e2fc3789bbde3"
   },
   "assets/v2/long-motion-provenance.json": {
-    "bytes": 1835,
-    "sha256": "6c2def4a206eada6f508437305c9e3326f69f776eac79027b0ce91be1a3c139b"
+    "bytes": 1941,
+    "sha256": "dd55c26acdf2d3844dcdad2054001796f089ff96fdacbc864fc06717505d882c"
   },
   "assets/v2/monitor-ours-poster.jpg": {
     "bytes": 27111,
@@ -148,8 +148,8 @@
     "sha256": "90f14c3b1a7c589edc962059fc010c7d5b09acfa47695808b06d3c4debcd8b06"
   },
   "assets/v2/s2-long-table-events.json": {
-    "bytes": 13038,
-    "sha256": "f646881e10b376c7a01134f06965a2e1aa752102a16b465d8c8b2c8c5e3f904f"
+    "bytes": 13146,
+    "sha256": "df2badbd4e4cf7a655293abb66de4b1abaa59564fb787a839e955e78190962ac"
   },
   "assets/v2/s2-long-table-poster.jpg": {
     "bytes": 25083,
@@ -164,12 +164,12 @@
     "sha256": "58c2011cbf59e9f98b1cab2d60a1753a9ab97fbd6dae8047c33ff4eeba4da6c1"
   },
   "assets/v2/s2-long-table.mp4": {
-    "bytes": 980827,
-    "sha256": "5473541606875013ab9727f7d7aacd41390654b4c1efd366c5e75a272f8e17c9"
+    "bytes": 2000523,
+    "sha256": "e45573dc00c63afdb75830de3f988dee2c84e23502866860a53883c7eb71118a"
   },
   "assets/v2/s2-long-tripod-events.json": {
-    "bytes": 8853,
-    "sha256": "f658862fdcaf54facdf68efde5344580d08c8c801e755f49d5fee3c87c3bb18c"
+    "bytes": 8961,
+    "sha256": "b756ba03f0b610368d67e223c8f9fbdbdb8667794988f7bab676debff853c298"
   },
   "assets/v2/s2-long-tripod-poster.jpg": {
     "bytes": 28762,
@@ -184,8 +184,8 @@
     "sha256": "df27a84036885c32062a5edb85427fdf4e93d258473b288d80d9b4e465688bfa"
   },
   "assets/v2/s2-long-tripod.mp4": {
-    "bytes": 937320,
-    "sha256": "7bebbeab9cc64cd41be5797caaa61ee0598c9f41ed9d8a6fddaa901d42617163"
+    "bytes": 1983881,
+    "sha256": "104c97ef68efb532830c4155b20ddc7ff039abe47ad01b7b04dda75a389d2c98"
   },
   "assets/v2/sub11-monitor.json": {
     "bytes": 12469646,
@@ -255,17 +255,21 @@
     "bytes": 23697,
     "sha256": "7e5e02592b9107b762f6d8f53831ba23f8e5ea497da3862836da179e5dcd9b55"
   },
+  "celebration-overlay.js": {
+    "bytes": 1909,
+    "sha256": "e872a68c9abd50922aedf70a28ed57bbcc4c4d7afe4442b2649ff5d8e12ba5f5"
+  },
   "goal-effects.js": {
-    "bytes": 4395,
-    "sha256": "21d6c22bf8031b6710f11afa481930ad4b5df81aba9e95d62ff6248e37ba48ab"
+    "bytes": 4162,
+    "sha256": "c2455f7b4560bc9fcef2aca15dca19cd09a3e2426d4dddfb15542b661731776c"
   },
   "index.html": {
-    "bytes": 19908,
-    "sha256": "e2ea582142851297517f826d315ae471decd509bc72054b81bbee25c4a8beb03"
+    "bytes": 19936,
+    "sha256": "b8155fd2fb9ed9a2adf080043966a4ac7d3b085ed6c5807c3d448f43df253639"
   },
   "playground.css": {
-    "bytes": 3816,
-    "sha256": "e389776eb1f8864e7537f4a52f8d4fdae6308c6b65e8154c738383d4167707db"
+    "bytes": 4002,
+    "sha256": "b08ac9a6624880630aa13fb8cc2732a7262a0ca397dc8a188fb7845f407052a3"
   },
   "playground.html": {
     "bytes": 3301,
