@@ -1,0 +1,31 @@
+{
+  "selection": [
+    {
+      "id": "c45-s2-woodchair",
+      "arm": "s2",
+      "file": "sub13_woodchair_008_trial0.npz",
+      "label": "C45k \u00b7 SFPO S=2",
+      "selection_reason": "First started wood-chair episode for both checkpoints; both full timelines retained without frame trimming."
+    },
+    {
+      "id": "c45-s1-woodchair",
+      "arm": "s1",
+      "file": "sub13_woodchair_008_trial0.npz",
+      "label": "C45k \u00b7 SFPO S=1",
+      "selection_reason": "First started wood-chair episode for both checkpoints; both full timelines retained without frame trimming."
+    }
+  ],
+  "note": "Fresh qualitative recording with frozen corrected full-SMPL evaluation code and C45000. Selected from the first three starts per task; no new training or benchmark claim.",
+  "checkpoints": {
+    "s2": {
+      "sha256": "f08cf79944d7b3d2c7b1d9f1569dbcc715a45f14ddbf60f985bcf606daa31872",
+      "prior_evaluation_successes": 837,
+      "prior_evaluation_n": 1239
+    },
+    "s1": {
+      "sha256": "63272cfa4805a2b6a3b9b586d8f3aa60dac141875fdd9ac7fc0df0c6345b448c",
+      "prior_evaluation_successes": 798,
+      "prior_evaluation_n": 1239
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "scope": "Selected qualitative demonstrations; no new benchmark claim",
+  "selection_pool": "first three starts on 12 longest reference pelvis-displacement tasks",
+  "controller": "C45000",
+  "planner_training_controller": "C50000",
+  "planner": "semantic S=2 beta=0 epoch500",
+  "stop_condition": "First three starts on 12 longest reference pelvis displacement tasks; stop each recording after 10 consecutive frames within 0.3m pelvis XY/object XYZ and object speed <0.2m/s; no policy change.",
+  "selected": [
+    {
+      "file": "sub9_tripod_016_trial0.npz",
+      "sequence": "sub9_tripod_016",
+      "trial": 0,
+      "frames": 215,
+      "stop_reason": "stable_goal_arrival",
+      "last_frame_success": true,
+      "pelvis_error_m": 0.047184403985738754,
+      "object_error_m": 0.1236378476023674,
+      "body_displacement_m": 3.153282880783081,
+      "object_displacement_m": 3.1341583728790283
+    },
+    {
+      "file": "sub5_largetable_047_trial0.npz",
+      "sequence": "sub5_largetable_047",
+      "trial": 0,
+      "frames": 324,
+      "stop_reason": "stable_goal_arrival",
+      "last_frame_success": true,
+      "pelvis_error_m": 0.0827523022890091,
+      "object_error_m": 0.06590745598077774,
+      "body_displacement_m": 3.7176544666290283,
+      "object_displacement_m": 2.791064500808716
+    }
+  ],
+  "source_revision": "4976a7b87665a0688100755854ad27a7224c90cc",
+  "planner_sha256": "f08cf79944d7b3d2c7b1d9f1569dbcc715a45f14ddbf60f985bcf606daa31872"
+}

@@ -1,0 +1,47 @@
+{
+  "checks": [
+    {
+      "width": 1440,
+      "noOverflow": true,
+      "durations": [
+        10.8,
+        7.166667
+      ]
+    },
+    {
+      "width": 768,
+      "noOverflow": true,
+      "durations": [
+        10.8,
+        7.166667
+      ]
+    },
+    {
+      "width": 390,
+      "noOverflow": true,
+      "durations": [
+        10.8,
+        7.166667
+      ]
+    },
+    {
+      "width": 360,
+      "noOverflow": true,
+      "durations": [
+        10.8,
+        7.166667
+      ]
+    },
+    {
+      "id": "s2-long-table",
+      "rawReplay": true,
+      "physicsAdvances": true
+    },
+    {
+      "id": "s2-long-tripod",
+      "rawReplay": true,
+      "physicsAdvances": true
+    }
+  ],
+  "errors": []
+}

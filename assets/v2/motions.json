@@ -1,0 +1,289 @@
+{
+  "fps": 30,
+  "layout": "52 body poses then object; xyz, xyzw; little endian float32; Z up",
+  "smoothing": "Centered triangular window 5, one pass; raw pelvis and object translations preserved. Display only.",
+  "cases": [
+    {
+      "id": "s2-long-table",
+      "arm": "s2",
+      "file": "sub5_largetable_047_trial0.npz",
+      "object": "largetable",
+      "frames": 324,
+      "geometry": "sub5-largetable.json",
+      "bounds": [
+        [
+          -0.77264404296875,
+          -3.730457305908203,
+          -0.007129669189453125
+        ],
+        [
+          0.78253173828125,
+          0.21855926513671875,
+          1.5577069520950317
+        ]
+      ],
+      "sequence": "sub5_largetable_047",
+      "stop_reason": "stable_goal_arrival",
+      "source_sha256": "774d93bcf8a33650ba75a340a17f27fb7c45b870f81b72b31170047cbe43549d",
+      "subject": 5,
+      "label": "C45k \u00b7 S=2 \u00b7 Table transport",
+      "seed": 1,
+      "controller": "C45000",
+      "planner_epoch": 500,
+      "S": 2,
+      "beta": 0,
+      "planner_sha256": "f08cf79944d7b3d2c7b1d9f1569dbcc715a45f14ddbf60f985bcf606daa31872",
+      "controller_sha256": "7626e56cd941e9312c1b34a8eeee720c031d6835f596032f33bcb319031ceb77",
+      "source": "long_motion_20261106/s2/sub5_largetable_047_trial0.npz"
+    },
+    {
+      "id": "s2-long-tripod",
+      "arm": "s2",
+      "file": "sub9_tripod_016_trial0.npz",
+      "object": "tripod",
+      "frames": 215,
+      "geometry": "sub9-tripod.json",
+      "bounds": [
+        [
+          -2.5635147094726562,
+          -2.5546417236328125,
+          -0.003527134656906128
+        ],
+        [
+          0.27242279052734375,
+          0.17533814907073975,
+          1.5937201976776123
+        ]
+      ],
+      "sequence": "sub9_tripod_016",
+      "stop_reason": "stable_goal_arrival",
+      "source_sha256": "9b7f0b22582fb043b7c9847dc576a420f2b891902ba23ae9faf0ae782f29714f",
+      "subject": 9,
+      "label": "C45k \u00b7 S=2 \u00b7 Tripod transport",
+      "seed": 1,
+      "controller": "C45000",
+      "planner_epoch": 500,
+      "S": 2,
+      "beta": 0,
+      "planner_sha256": "f08cf79944d7b3d2c7b1d9f1569dbcc715a45f14ddbf60f985bcf606daa31872",
+      "controller_sha256": "7626e56cd941e9312c1b34a8eeee720c031d6835f596032f33bcb319031ceb77",
+      "source": "long_motion_20261106/s2/sub9_tripod_016_trial0.npz"
+    },
+    {
+      "id": "monitor-ours",
+      "label": "InfCoiL",
+      "object": "monitor",
+      "subject": 11,
+      "frames": 399,
+      "geometry": "sub11-monitor.json",
+      "bounds": [
+        [
+          -1.38702392578125,
+          -0.822479248046875,
+          -0.005946781486272812
+        ],
+        [
+          0.33635634183883667,
+          0.5233535766601562,
+          1.6213297843933105
+        ]
+      ],
+      "source": "bestp500_bestc_visuals_0507/runner_collect_any/BP_BC/sub11_monitor_022_46.npz",
+      "source_sha256": "f15030c86fb4bacb987a8962ec8437d35ffce06f5dc946abb64baa48bd0524b7",
+      "seed": 1,
+      "sequence": "sub11_monitor_022",
+      "display_max_body_displacement_cm": 4.927462577819824
+    },
+    {
+      "id": "monitor-sft",
+      "label": "SFT cascade",
+      "object": "monitor",
+      "subject": 11,
+      "frames": 85,
+      "geometry": "sub11-monitor.json",
+      "bounds": [
+        [
+          -0.4354376196861267,
+          -0.85577392578125,
+          -0.007524430751800537
+        ],
+        [
+          0.473388671875,
+          0.15301513671875,
+          1.5844634771347046
+        ]
+      ],
+      "source": "case_studies_sft_student_fail_0507/collect/sft_fail_pool/sft_collect_failure_74_sub11_monitor_022_body_traj.npz",
+      "source_sha256": "7e7210945f64cc30c37d8176df37df980b746dd133b5ac3b74f14005f5cb19bb",
+      "seed": 42,
+      "sequence": "sub11_monitor_022",
+      "display_max_body_displacement_cm": 2.713899850845337
+    },
+    {
+      "id": "monitor-student",
+      "label": "InterMimic student",
+      "object": "monitor",
+      "subject": 11,
+      "frames": 90,
+      "geometry": "sub11-monitor.json",
+      "bounds": [
+        [
+          -0.4354376196861267,
+          -0.7970733642578125,
+          -0.002571089193224907
+        ],
+        [
+          0.4542999267578125,
+          0.1457061767578125,
+          1.5844634771347046
+        ]
+      ],
+      "source": "stage1_openloop_collect_0507/collect_pool/student/student_failure_100_sub11_monitor_022_body_traj.npz",
+      "source_sha256": "71df533be1c140a76f499a0e5b103c4eaa5b71682b69bb342a82a4dfeeba0b42",
+      "seed": 42,
+      "sequence": "sub11_monitor_022",
+      "display_max_body_displacement_cm": 5.105532169342041
+    },
+    {
+      "id": "suitcase-ours",
+      "label": "InfCoiL",
+      "object": "suitcase",
+      "subject": 15,
+      "frames": 378,
+      "geometry": "sub15-suitcase.json",
+      "bounds": [
+        [
+          -0.532867431640625,
+          -1.20379638671875,
+          -0.0032840892672538757
+        ],
+        [
+          0.49098968505859375,
+          0.0962686538696289,
+          1.5204206705093384
+        ]
+      ],
+      "source": "bestp500_bestc_visuals_0507/runner_collect_any/BP_BC/sub15_suitcase_024_43.npz",
+      "source_sha256": "4bd7ae45aeb2fcc44a02694988d4b08bbc043a433919c132017c16daa7c9a2eb",
+      "seed": 1,
+      "sequence": "sub15_suitcase_024",
+      "display_max_body_displacement_cm": 9.968088150024414
+    },
+    {
+      "id": "floorlamp-ours",
+      "label": "InfCoiL",
+      "object": "floorlamp",
+      "subject": 8,
+      "frames": 200,
+      "geometry": "sub8-floorlamp.json",
+      "bounds": [
+        [
+          -0.4101213216781616,
+          -0.7770843505859375,
+          -0.007467597723007202
+        ],
+        [
+          0.3380076289176941,
+          0.2320709228515625,
+          1.7542604207992554
+        ]
+      ],
+      "source": "bestp500_bestc_visuals_0507/runner_collect_any/BP_BC/sub8_floorlamp_006_21.npz",
+      "source_sha256": "588a2f5361d672c32ac7a1df4c2a3197ea1c6d95efaea38b4895221abb58ca82",
+      "seed": 1,
+      "sequence": "sub8_floorlamp_006",
+      "display_max_body_displacement_cm": 5.971735000610352
+    },
+    {
+      "id": "woodchair-ours",
+      "label": "InfCoiL",
+      "object": "woodchair",
+      "subject": 13,
+      "frames": 383,
+      "geometry": "sub13-woodchair.json",
+      "bounds": [
+        [
+          -0.6828346252441406,
+          -0.6606063842773438,
+          -0.009142238646745682
+        ],
+        [
+          0.5010490417480469,
+          0.6576080322265625,
+          1.5723071098327637
+        ]
+      ],
+      "source": "bestp500_bestc_visuals_0507/runner_collect_any/BP_BC/sub13_woodchair_008_44.npz",
+      "source_sha256": "d27a9deda697aca5ed8b258c35a4b95bf417ff623df51ff9be6440e8076511eb",
+      "seed": 1,
+      "sequence": "sub13_woodchair_008",
+      "display_max_body_displacement_cm": 5.896194934844971
+    },
+    {
+      "id": "c45-s2-woodchair",
+      "label": "C45k \u00b7 SFPO S=2",
+      "object": "woodchair",
+      "subject": 13,
+      "frames": 999,
+      "geometry": "sub13-woodchair.json",
+      "bounds": [
+        [
+          -0.68292236328125,
+          -0.7342529296875,
+          -0.009110864251852036
+        ],
+        [
+          0.5344161987304688,
+          0.7538681030273438,
+          1.6130571365356445
+        ]
+      ],
+      "source": "checkpoint_previews_20261106/s2/sub13_woodchair_008_trial0.npz",
+      "source_sha256": "4ef6524f1bee2b749b74124be335da2b03b00ed2afda31313910ce7a2c37416d",
+      "seed": 1,
+      "sequence": "sub13_woodchair_008",
+      "controller": "C45000",
+      "controller_sha256": "7626e56cd941e9312c1b34a8eeee720c031d6835f596032f33bcb319031ceb77",
+      "planner_sha256": "f08cf79944d7b3d2c7b1d9f1569dbcc715a45f14ddbf60f985bcf606daa31872",
+      "planner_epoch": 500,
+      "S": 2,
+      "beta": 0,
+      "any_frame_success": true,
+      "last_frame_success": true,
+      "display_max_body_displacement_cm": 4.4033589363098145
+    },
+    {
+      "id": "c45-s1-woodchair",
+      "label": "C45k \u00b7 SFPO S=1",
+      "object": "woodchair",
+      "subject": 13,
+      "frames": 999,
+      "geometry": "sub13-woodchair.json",
+      "bounds": [
+        [
+          -0.5537300109863281,
+          -0.7268829345703125,
+          -0.009080052375793457
+        ],
+        [
+          0.3607902526855469,
+          0.6186141967773438,
+          1.6438562870025635
+        ]
+      ],
+      "source": "checkpoint_previews_20261106/s1/sub13_woodchair_008_trial0.npz",
+      "source_sha256": "5b3f04f74d96052cc6be3fb253e78fd9ff4b0c0dbab5f406100d816c9b1b07ec",
+      "seed": 1,
+      "sequence": "sub13_woodchair_008",
+      "controller": "C45000",
+      "controller_sha256": "7626e56cd941e9312c1b34a8eeee720c031d6835f596032f33bcb319031ceb77",
+      "planner_sha256": "63272cfa4805a2b6a3b9b586d8f3aa60dac141875fdd9ac7fc0df0c6345b448c",
+      "planner_epoch": 500,
+      "S": 1,
+      "beta": 0,
+      "any_frame_success": true,
+      "last_frame_success": true,
+      "display_max_body_displacement_cm": 6.582703590393066
+    }
+  ]
+}

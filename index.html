@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>InfCoiL: Coordinated Planner-Controller Learning for Closed-Loop Physics-Based Human-Object Interaction</title>
+  <meta name="description" content="Better plans. Executable interactions. InfCoiL couples a morphology-aware flow-matching planner with a unified physics-based controller in a closed-loop plan-and-execute cycle, reaching 81.19% SR@0.3 on OMOMO." />
+  <script>
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js-ready');
+  </script>
+  <link rel="canonical" href="https://infcoil.github.io/" />
+  <meta property="og:url" content="https://infcoil.github.io/" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Top Navigation -->
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a href="#top" class="brand-mark" aria-label="InfCoiL Home">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-name">InfCoiL</span>
+      </a>
+
+      <button
+        type="button"
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="nav-toggle-bars" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="#comparison" class="nav-link">Comparison</a></li>
+          <li><a href="#evidence" class="nav-link">Why It Works</a></li>
+          <li><a href="#demos" class="nav-link">Demos</a></li>
+          <li><a href="#playground" class="nav-link">3D Playground</a></li>
+          <li><a href="#method-results" class="nav-link">Method &amp; Results</a></li>
+          <li><a href="#citation" class="nav-link">Citation</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="assets/paper.pdf" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M4 2h5.5L13 5.5V14H4V2z"/>
+              <path d="M9 2v4h4"/>
+            </svg>
+            <span>Paper</span>
+          </a>
+          <a href="https://github.com/securityCFS/InfCoiL" class="btn btn-primary btn-sm" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="currentColor">
+              <path d="M8 0.2a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.42 7.42 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8.01 8.01 0 0 0 8 0.2Z"/>
+            </svg>
+            <span>Code</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- =====================================================================
+         HERO: OUTCOME-FIRST HEADER + SYNCHRONIZED BASELINE VIDEO COMPARISON
+         ===================================================================== -->
+    <section class="hero-section" id="comparison" aria-labelledby="hero-headline">
+      <div class="container">
+        <div class="hero-top-grid">
+          <div class="hero-copy-col">
+            <p class="hero-slogan" id="hero-headline">Better plans. Executable interactions.</p>
+            <h1 class="paper-title">
+              InfCoiL: Coordinated Planner-Controller Learning for Closed-Loop Physics-Based Human-Object Interaction
+            </h1>
+            <p class="hero-explanation">
+              Text and spatial goals guide a morphology-aware flow-matching planner and a unified physics-based controller. Replanning from realized physical states and alternating reinforcement learning let planner and controller adapt to each other in closed loop.
+            </p>
+
+            <div class="authors-block" aria-label="Authors and affiliations">
+              <p class="authors-line">
+                <span><strong>Yude Zou</strong><sup>1,2,*</sup></span>
+                <span><strong>Yifei Yao</strong><sup>2,*</sup></span>
+                <span><strong>Yiwei Hao</strong><sup>1,*</sup></span>
+                <span><strong>Hanqing Wang</strong><sup>2</sup></span>
+                <span><strong>Xing Gao</strong><sup>2,&dagger;</sup></span>
+              </p>
+              <p class="affiliations-line">
+                <span><sup>1</sup>Shanghai Jiao Tong University</span>
+                <span class="sep" aria-hidden="true">&middot;</span>
+                <span><sup>2</sup>Shanghai Artificial Intelligence Laboratory</span>
+                <span class="sep" aria-hidden="true">&middot;</span>
+                <span><sup>*</sup>Equal contribution</span>
+                <span class="sep" aria-hidden="true">&middot;</span>
+                <span><sup>&dagger;</sup>Corresponding author</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="hero-metrics-col">
+            <div class="outcome-pillars" role="list" aria-label="Key quantitative outcomes">
+              <div class="outcome-stat outcome-stat-primary" role="listitem">
+                <span class="outcome-val">81.19<small>%</small></span>
+                <span class="outcome-lbl">Task Success (SR@0.3)</span>
+                <span class="outcome-delta">+29.05 percentage points vs. SimGenHOI*</span>
+              </div>
+              <div class="outcome-stat" role="listitem">
+                <span class="outcome-val">41.51<small> cm</small></span>
+                <span class="outcome-lbl">Object Goal Error</span>
+                <span class="outcome-delta">vs. 68.15 cm in SimGenHOI*</span>
+              </div>
+            </div>
+
+            <div class="hero-links-row">
+              <a href="assets/paper.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+                <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M5 2.5h6.5L16 7v10.5H5V2.5z"/>
+                  <path d="M11 2.5V7h4.5"/>
+                </svg>
+                <span>Read Paper (PDF)</span>
+              </a>
+              <a href="https://github.com/securityCFS/InfCoiL" class="btn btn-dark" target="_blank" rel="noopener">
+                <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" fill="currentColor">
+                  <path d="M8 0.2a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.42 7.42 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.15.46.55.38A8.01 8.01 0 0 0 8 0.2Z"/>
+                </svg>
+                <span>Code</span>
+              </a>
+              <a href="#playground" class="btn btn-outline">
+                <span>3D Playground</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <section id="new-checkpoints" class="comparison-deck checkpoint-new-deck" aria-labelledby="new-checkpoints-title">
+          <div class="comparison-topbar"><div class="comparison-title-wrap"><span class="deck-kicker">LONGER TRANSPORT · C45K CONTROLLER</span><h2 class="deck-title" id="new-checkpoints-title">Carry farther. Stop at the destination.</h2></div><a class="btn btn-ghost btn-sm" href="playground.html" target="_blank" rel="noopener">Inspect raw motion in 3D ↗</a></div>
+          <div class="demo-gallery-grid checkpoint-new-grid">
+            <article class="demo-card"><div class="demo-card-header"><span class="demo-obj-tag">Table · 3.7 m travel</span><span class="demo-meta-tag">SFPO S=2 · 10.8 s</span></div><div class="demo-video-box"><video class="gallery-video" src="assets/v2/s2-long-table.mp4" poster="assets/v2/s2-long-table-poster.jpg" controls playsinline muted preload="metadata" aria-label="Table · 3.7 m travel, recording ends at stable goal arrival"></video></div><p class="demo-card-caption">From the initial pose to the destination. Recording stops after stable arrival.</p></article>
+            <article class="demo-card"><div class="demo-card-header"><span class="demo-obj-tag">Tripod · 3.2 m travel</span><span class="demo-meta-tag">SFPO S=2 · 7.2 s</span></div><div class="demo-video-box"><video class="gallery-video" src="assets/v2/s2-long-tripod.mp4" poster="assets/v2/s2-long-tripod-poster.jpg" controls playsinline muted preload="metadata" aria-label="Tripod · 3.2 m travel, recording ends at stable goal arrival"></video></div><p class="demo-card-caption">From the initial pose to the destination. Recording stops after stable arrival.</p></article>
+          </div><p class="checkpoint-note">Selected qualitative examples with the retrained S=2 planner and C45k controller. Distances describe pelvis displacement. Recording ends after pelvis/object goal errors remain below 0.3 m and object speed below 0.2 m/s for 10 frames. Same five-frame display smoothing; raw replay is available. These clips are separate from the paper’s benchmark results.</p>
+        </section>
+
+        <!-- =================================================================
+             SYNCHRONIZED SIDE-BY-SIDE BASELINE VIDEO COMPARISON
+             ================================================================= -->
+        <div class="comparison-deck" aria-labelledby="comparison-deck-title">
+          <div class="comparison-topbar">
+            <div class="comparison-title-wrap">
+              <span class="deck-kicker">SYNCHRONIZED ROLLOUT COMPARISON &middot; MONITOR TASK</span>
+              <h2 class="deck-title" id="comparison-deck-title">
+                Earlier Checkpoint vs. Open-Loop Baselines
+              </h2>
+            </div>
+
+            <div class="baseline-selector-group" role="group" aria-label="Select baseline rollout for right-hand comparison">
+              <span class="selector-prefix">Compare against:</span>
+              <button
+                type="button"
+                class="baseline-tab is-active"
+                data-baseline="sft"
+                aria-pressed="true"
+              >
+                SFT Cascade (2.83s)
+              </button>
+              <button
+                type="button"
+                class="baseline-tab"
+                data-baseline="student"
+                aria-pressed="false"
+              >
+                InterMimic Student (3.00s)
+              </button>
+            </div>
+          </div>
+
+          <div class="comparison-viewports">
+            <!-- Left Viewport: InfCoiL (Ours) -->
+            <figure class="compare-pane compare-pane-ours">
+              <div class="pane-header">
+                <div class="pane-badge-group">
+                  <span class="pane-pill pane-pill-ours">InfCoiL (Ours)</span>
+                  <span class="pane-task-label">Monitor manipulation</span>
+                </div>
+                <span class="pane-duration-meta" id="ours-time-badge">13.30s recording (399 frames @ 30fps)</span>
+              </div>
+              <div class="video-canvas-wrap">
+                <video
+                  id="comp-video-ours"
+                  class="comp-video"
+                  src="assets/v2/monitor-ours.mp4"
+                  poster="assets/v2/monitor-ours-poster.jpg"
+                  playsinline
+                  muted
+                  preload="auto"
+                >
+                  <source src="assets/v2/monitor-ours.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <figcaption class="pane-caption">
+                A 13.30-second closed-loop recording, including approach, manipulation, and the final recorded state.
+              </figcaption>
+            </figure>
+
+            <!-- Right Viewport: Baseline (SFT Cascade or InterMimic Student) -->
+            <figure class="compare-pane compare-pane-baseline">
+              <div class="pane-header">
+                <div class="pane-badge-group">
+                  <span class="pane-pill pane-pill-baseline" id="baseline-pill-label">SFT Cascade Baseline</span>
+                  <span class="pane-task-label">Same monitor task, subject &amp; object</span>
+                </div>
+                <span class="pane-duration-meta" id="baseline-duration-meta">2.83s recording (85 frames @ 30fps)</span>
+              </div>
+              <div class="video-canvas-wrap">
+                <video
+                  id="comp-video-baseline"
+                  class="comp-video"
+                  src="assets/v2/monitor-sft.mp4"
+                  poster="assets/v2/monitor-sft-poster.jpg"
+                  playsinline
+                  muted
+                  preload="auto"
+                >
+                  <source id="comp-source-baseline" src="assets/v2/monitor-sft.mp4" type="video/mp4" />
+                </video>
+
+                <!-- Early-Termination Freeze Overlay -->
+                <div class="baseline-ended-badge" id="baseline-ended-badge" hidden aria-live="polite">
+                  <span class="ended-dot" aria-hidden="true"></span>
+                  <span id="baseline-ended-text">Recording ended at 2.83s</span>
+                </div>
+              </div>
+              <figcaption class="pane-caption" id="baseline-pane-caption">
+                Open-loop SFT cascade rollout terminates early at 2.83s (85 frames) in this recorded example.
+              </figcaption>
+            </figure>
+          </div>
+
+          <!-- Shared Synchronized Transport & Elapsed-Second Scrubber -->
+          <div class="shared-transport-bar" aria-label="Synchronized video playback controls">
+            <div class="transport-btn-cluster">
+              <button
+                type="button"
+                class="transport-btn transport-btn-primary"
+                id="sync-play-btn"
+                aria-pressed="false"
+                aria-label="Play or pause synchronized comparison"
+              >
+                <span class="transport-glyph" id="sync-play-glyph" aria-hidden="true">&#9654;</span>
+                <span id="sync-play-label">Play</span>
+              </button>
+              <button
+                type="button"
+                class="transport-btn"
+                id="sync-restart-btn"
+                aria-label="Restart synchronized comparison from 0.00 seconds"
+              >
+                <span>Restart</span>
+              </button>
+            </div>
+
+            <div class="scrubber-wrap">
+              <label for="sync-scrubber" class="sr-only">Scrub elapsed time in seconds</label>
+              <input
+                type="range"
+                id="sync-scrubber"
+                class="sync-scrubber"
+                min="0"
+                max="13.30"
+                step="0.033"
+                value="0"
+              />
+              <div class="scrubber-markers" aria-hidden="true">
+                <span>0.00s</span>
+                <span class="marker-cutoff" id="scrubber-cutoff-label">Baseline ends: 2.83s</span>
+                <span id="scrubber-max-label">13.30s</span>
+              </div>
+            </div>
+
+            <div class="elapsed-readout" id="sync-time-readout" aria-live="off">
+              <span id="sync-current-time">0.00s</span>
+              <span class="time-slash">/</span>
+              <span id="sync-total-time">13.30s</span>
+            </div>
+          </div>
+
+          <!-- Smoothing Note & Expandable Source Note -->
+          <div class="comparison-footer-notes">
+            <p class="smoothing-note">
+              Display-smoothed recordings. Benchmark statistics use the original evaluation outputs.
+            </p>
+            <details class="source-note-details">
+              <summary>Source &amp; evaluation note</summary>
+              <p>
+                These synchronized clips show the same monitor task, subject morphology, and object geometry, rendered with identical 5-frame visual smoothing while preserving raw root and object translation. Because the recordings come from different rollout seeds/runs, they serve as curated qualitative examples of open-loop drift versus closed-loop execution rather than matched-seed statistical trials. These use a historical planner/controller checkpoint pair, not a fresh evaluation of the final C→P→C schedule. Full quantitative benchmark results (averaged over 3 evaluation runs per test sequence) are reported in Table 1 below.
+              </p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 2: THREE CONCISE EVIDENCE POINTS & STAGE STORY
+         ===================================================================== -->
+    <section class="section section-porcelain" id="evidence" aria-labelledby="evidence-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">01 &middot; EMPIRICAL PROGRESSION</span>
+          <h2 class="section-title" id="evidence-title">
+            Why Both Closed-Loop Replanning and Co-Adaptation Matter
+          </h2>
+          <p class="section-subtitle">
+            Closing the execution loop and adapting both modules with reinforcement learning resolve distinct failure modes that neither open-loop cascades nor single-module training can overcome alone.
+          </p>
+        </div>
+
+        <!-- Three Concise Evidence Points -->
+        <div class="evidence-cards-grid">
+          <article class="evidence-card">
+            <span class="evidence-num">01 &middot; RECEDING-HORIZON FEEDBACK</span>
+            <h3 class="evidence-card-title">Replanning Corrects Execution Drift</h3>
+            <p class="evidence-card-body">
+              Switching from one-shot open-loop generation (<strong>49.23%</strong> SR@0.3) to receding-horizon closed-loop replanning with frozen weights raises task success to <strong>56.09%</strong> and achieves the lowest local humanoid tracking error (<strong>7.25 cm</strong>).
+            </p>
+          </article>
+
+          <article class="evidence-card">
+            <span class="evidence-num">02 &middot; ASYMMETRIC ISOLATED RL</span>
+            <h3 class="evidence-card-title">Controller Support Unlocks Planner Learning</h3>
+            <p class="evidence-card-body">
+              Planner-only RL against a frozen controller barely improves success (<strong>56.09% &rarr; 56.98%</strong>) in this comparison. Controller-only PPO (10k iterations) raises SR@0.3 to <strong>73.37%</strong>.
+            </p>
+          </article>
+
+          <article class="evidence-card evidence-card-highlight">
+            <span class="evidence-num">03 &middot; MATCHED CONTROLLER BUDGET (+9.20 pp)</span>
+            <h3 class="evidence-card-title">Co-Adaptation Breaks the Controller Ceiling</h3>
+            <p class="evidence-card-body">
+              Continuing controller-only training to 14k iterations drops SR@0.3 to <strong>71.99%</strong>. Inserting 500 SFPO planner updates between 10k and +4k controller phases reaches <strong>81.19%</strong>&mdash;a <strong>+9.20 percentage point</strong> gain at the same 14k controller budget (with 500 extra planner updates; not equal total compute).
+            </p>
+          </article>
+        </div>
+
+        <!-- Static 4-Stage Progression Narrative -->
+        <div class="stage-story-panel" aria-label="Coordinated learning stage progression">
+          <div class="stage-story-header">
+            <h3 class="stage-story-title">Step-by-Step Training Progression on OMOMO</h3>
+            <span class="stage-story-meta">Task Success Rate (SR@0.3 &uarr;) &amp; Object Goal Error (cm &darr;)</span>
+          </div>
+
+          <div class="stage-steps-grid" role="list">
+            <div class="stage-step-card" role="listitem">
+              <div class="stage-step-top">
+                <span class="stage-tag">Stage 0</span>
+                <span class="stage-iter">0 RL updates</span>
+              </div>
+              <h4 class="stage-name">Closed-Loop Frozen</h4>
+              <div class="stage-bar-wrap" aria-hidden="true">
+                <div class="stage-bar-fill" style="width: 69.08%;"></div>
+              </div>
+              <div class="stage-metrics-row">
+                <span class="stage-sr">56.09% <small>SR@0.3</small></span>
+                <span class="stage-err">69.83 cm <small>Obj Goal</small></span>
+              </div>
+            </div>
+
+            <div class="stage-step-card" role="listitem">
+              <div class="stage-step-top">
+                <span class="stage-tag">Phase 1 &middot; C</span>
+                <span class="stage-iter">10k C iterations</span>
+              </div>
+              <h4 class="stage-name">Controller PPO</h4>
+              <div class="stage-bar-wrap" aria-hidden="true">
+                <div class="stage-bar-fill" style="width: 90.37%;"></div>
+              </div>
+              <div class="stage-metrics-row">
+                <span class="stage-sr">73.37% <small>SR@0.3</small></span>
+                <span class="stage-err">49.45 cm <small>Obj Goal</small></span>
+              </div>
+            </div>
+
+            <div class="stage-step-card" role="listitem">
+              <div class="stage-step-top">
+                <span class="stage-tag">Phase 2 &middot; C&rarr;P</span>
+                <span class="stage-iter">10k C + 500 P</span>
+              </div>
+              <h4 class="stage-name">+ Planner SFPO</h4>
+              <div class="stage-bar-wrap" aria-hidden="true">
+                <div class="stage-bar-fill stage-bar-teal" style="width: 95.13%;"></div>
+              </div>
+              <div class="stage-metrics-row">
+                <span class="stage-sr">77.24% <small>SR@0.3</small></span>
+                <span class="stage-err">45.37 cm <small>Obj Goal</small></span>
+              </div>
+            </div>
+
+            <div class="stage-step-card stage-step-final" role="listitem">
+              <div class="stage-step-top">
+                <span class="stage-tag">Full &middot; C&rarr;P&rarr;C</span>
+                <span class="stage-iter">10k C + 500 P + 4k C</span>
+              </div>
+              <h4 class="stage-name">Full InfCoiL</h4>
+              <div class="stage-bar-wrap" aria-hidden="true">
+                <div class="stage-bar-fill stage-bar-coral" style="width: 100%;"></div>
+              </div>
+              <div class="stage-metrics-row">
+                <span class="stage-sr">81.19% <small>SR@0.3</small></span>
+                <span class="stage-err">41.51 cm <small>Obj Goal</small></span>
+              </div>
+            </div>
+          </div>
+
+          <p class="stage-comparison-callout">
+            <strong>Matched controller budget reference:</strong> Training the controller alone for all <strong>14k iterations</strong> (without the 500-iteration SFPO planner phase) reaches <strong>71.99% SR@0.3</strong> and <strong>51.62 cm</strong> object-goal error&mdash;supporting the benefit of coordinated updates at a matched controller budget; the coordinated schedule also uses 500 planner updates.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 3: FOUR VARIED MOTION DEMOS GALLERY
+         ===================================================================== -->
+    <section class="section section-ink" id="demos" aria-labelledby="demos-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">02 &middot; QUALITATIVE GALLERY</span>
+          <h2 class="section-title" id="demos-title">
+            Executed Interactions Across Diverse Objects
+          </h2>
+          <p class="section-subtitle">
+            Closed-loop recordings with a monitor, suitcase, floor lamp, and wooden chair. Display-smoothed recordings. Benchmark statistics use the original evaluation outputs.
+          </p>
+        </div>
+
+        <div class="demo-gallery-grid">
+          <!-- 1. Monitor -->
+          <article class="demo-card">
+            <div class="demo-card-header">
+              <span class="demo-obj-tag">01 &middot; MONITOR</span>
+              <span class="demo-meta-tag">Lift &amp; rotate</span>
+            </div>
+            <div class="demo-video-box">
+              <video
+                class="gallery-video"
+                src="assets/v2/monitor-ours.mp4"
+                poster="assets/v2/monitor-ours-poster.jpg"
+                controls
+                playsinline
+                muted
+                preload="metadata"
+              >
+                <source src="assets/v2/monitor-ours.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <p class="demo-card-caption">
+              Stoop reach, bimanual support of the monitor panel and stand, and controlled rotation toward the spatial target.
+            </p>
+          </article>
+
+          <!-- 2. Suitcase -->
+          <article class="demo-card">
+            <div class="demo-card-header">
+              <span class="demo-obj-tag">02 &middot; SUITCASE</span>
+              <span class="demo-meta-tag">Approach, grasp &amp; lift</span>
+            </div>
+            <div class="demo-video-box">
+              <video
+                class="gallery-video"
+                src="assets/v2/suitcase-ours.mp4"
+                poster="assets/v2/suitcase-ours-poster.jpg"
+                controls
+                playsinline
+                muted
+                preload="metadata"
+              >
+                <source src="assets/v2/suitcase-ours.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <p class="demo-card-caption">
+              Whole-body approach, low-center grip on the upright suitcase, followed by lifting and transport.
+            </p>
+          </article>
+
+          <!-- 3. Floor Lamp -->
+          <article class="demo-card">
+            <div class="demo-card-header">
+              <span class="demo-obj-tag">03 &middot; FLOOR LAMP</span>
+              <span class="demo-meta-tag">Grasp &amp; reposition</span>
+            </div>
+            <div class="demo-video-box">
+              <video
+                class="gallery-video"
+                src="assets/v2/floorlamp-ours.mp4"
+                poster="assets/v2/floorlamp-ours-poster.jpg"
+                controls
+                playsinline
+                muted
+                preload="metadata"
+              >
+                <source src="assets/v2/floorlamp-ours.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <p class="demo-card-caption">
+              Coordinated upper-body reach and handling of a tall floor lamp.
+            </p>
+          </article>
+
+          <!-- 4. Wood Chair -->
+          <article class="demo-card">
+            <div class="demo-card-header">
+              <span class="demo-obj-tag">04 &middot; WOOD CHAIR</span>
+              <span class="demo-meta-tag">Grasp, lift &amp; reorient</span>
+            </div>
+            <div class="demo-video-box">
+              <video
+                class="gallery-video"
+                src="assets/v2/woodchair-ours.mp4"
+                poster="assets/v2/woodchair-ours-poster.jpg"
+                controls
+                playsinline
+                muted
+                preload="metadata"
+              >
+                <source src="assets/v2/woodchair-ours.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <p class="demo-card-caption">
+              Multi-part frame grasping, lifting, and spatial reorientation of a wooden chair.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 4: INTERACTIVE 3D & MUJOCO TRAJECTORY PLAYGROUND
+         ===================================================================== -->
+    <section class="section section-porcelain" id="playground" aria-labelledby="playground-title">
+      <div class="container">
+        <div class="playground-header-row">
+          <div>
+            <span class="section-eyebrow">03 &middot; INTERACTIVE 3D VIEWER</span>
+            <h2 class="section-title" id="playground-title">
+              Explore the recorded motions in 3D
+            </h2>
+            <p class="section-subtitle">
+              Replay real trajectories; the optional physics sandbox is separate from learned-policy evaluation.
+            </p>
+          </div>
+          <div class="playground-actions">
+            <button
+              type="button"
+              class="btn btn-outline btn-sm"
+              id="playground-fullscreen-btn"
+              aria-label="Toggle fullscreen view for 3D playground"
+            >
+              <span>Fullscreen</span>
+            </button>
+            <a
+              href="playground.html"
+              class="btn btn-primary btn-sm"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>Open Standalone &nearr;</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="playground-frame-shell" id="playground-frame-shell">
+          <iframe
+            src="playground.html"
+            title="Explore the recorded motions in 3D — Trajectory replay and optional MuJoCo object-contact sandbox"
+            class="playground-iframe"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 5: METHODOLOGY & BENCHMARK RESULTS TABLE
+         ===================================================================== -->
+    <section class="section section-stone" id="method-results" aria-labelledby="method-results-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">04 &middot; METHODOLOGY &amp; BENCHMARK RESULTS</span>
+          <h2 class="section-title" id="method-results-title">
+            Coordinated Architecture &amp; OMOMO Evaluation
+          </h2>
+          <p class="section-subtitle">
+            InfCoiL couples a morphology-aware flow-matching planner with a unified multi-morphology controller through a receding-horizon interface. Online planner updates use <strong>Semantic Flow Policy Optimization (SFPO)</strong>, combining channel-wise semantic covariance over heterogeneous motion tokens with group-relative sequence-level rewards from complete closed-loop executions.
+          </p>
+        </div>
+
+        <!-- Framework Figure 1 -->
+        <figure class="figure-card">
+          <div class="figure-card-topbar">
+            <div>
+              <span class="figure-tag">SYSTEM ARCHITECTURE</span>
+              <h3 class="figure-heading">Overview of InfCoiL Closed-Loop Planning, Control &amp; SFPO</h3>
+            </div>
+            <button
+              type="button"
+              class="btn btn-outline btn-sm lightbox-trigger"
+              data-lightbox-src="assets/framework.png"
+              data-lightbox-title="Overview of InfCoiL Architecture"
+              data-lightbox-caption="Closed-loop plan-and-execute architecture paired with alternating controller (PPO) and planner (SFPO) reinforcement learning."
+            >
+              <span>Enlarge Figure &nearr;</span>
+            </button>
+          </div>
+          <div class="figure-media-wrap">
+            <img
+              src="assets/framework.png"
+              alt="Overview diagram of InfCoiL showing the flow-matching planner, unified physics controller, receding-horizon state feedback, and alternating PPO and SFPO learning."
+              loading="lazy"
+            />
+          </div>
+          <figcaption class="figure-caption">
+            <strong>Closed-loop execution &amp; coordinated learning:</strong> The flow-matching planner generates a short-horizon reference window, the controller executes the initial segment in simulation, and realized human and object states feed back as prefix history for replanning. Controller PPO and planner SFPO updates alternate on shared closed-loop rollouts.
+          </figcaption>
+        </figure>
+
+        <!-- Main Results Table (Table 1 — Fixed Paper Order, All 8 Rows, All 5 Metrics) -->
+        <div class="results-table-card" id="results">
+          <div class="results-table-header">
+            <div>
+              <span class="figure-tag">QUANTITATIVE BENCHMARK &middot; TABLE 1</span>
+              <h3 class="figure-heading">Task-Oriented Evaluation on the OMOMO Re-Split Test Set</h3>
+            </div>
+            <p class="results-protocol-note">
+              Each test sequence is evaluated 3 times and averaged. <code>SR@0.3</code> is in %, and tracking/goal errors are in cm.
+            </p>
+          </div>
+
+          <div class="table-scroll-wrap">
+            <table class="benchmark-table" aria-label="Table 1: Task-oriented evaluation on the OMOMO re-split test set">
+              <thead>
+                <tr>
+                  <th scope="col">Method</th>
+                  <th scope="col" class="col-sr-bar">SR@0.3 (%) &uarr;</th>
+                  <th scope="col">Humanoid Tracking (cm) &darr;</th>
+                  <th scope="col">Object Tracking (cm) &darr;</th>
+                  <th scope="col">Pelvis Goal (cm) &darr;</th>
+                  <th scope="col">Object Goal (cm) &darr;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">InterMimic student (open-loop)</th>
+                  <td class="col-sr-bar">
+                    <div class="sr-cell-inner">
+                      <span class="sr-val">24.62</span>
+                      <span class="sr-mini-bar" aria-hidden="true"><span style="width: 30.32%;"></span></span>
+                    </div>
+                  </td>
+                  <td>9.23</td>
+                  <td>16.89</td>
+                  <td>90.39</td>
+                  <td>111.89</td>
+                </tr>
+                <tr>
+                  <th scope="row">SimGenHOI* (open-loop + SFT)</th>
+                  <td class="col-sr-bar">
+                    <div class="sr-cell-inner">
+                      <span class="sr-val">52.14</span>
+                      <span class="sr-mini-bar" aria-hidden="true"><span style="width: 64.22%;"></span></span>
+                    </div>
+                  </td>
+                  <td>9.69</td>
+                  <td>18.00</td>
+                  <td>50.12</td>
+                  <td>68.15</td>
+                </tr>
+                <tr class="table-divider-top">
+                  <th scope="row">InfCoiL open-loop</th>
+                  <td class="col-sr-bar">
+                    <div class="sr-cell-inner">
+                      <span class="sr-val">49.23</span>
+                      <span class="sr-mini-bar" aria-hidden="true"><span style="width: 60.64%;"></span></span>
+                    </div>
+                  </td>
+                  <td>9.40</td>
+                  <td>18.08</td>
+                  <td>57.15</td>
+                  <td>75.51</td>
+                </tr>
+                <tr>
+                  <th scope="row">Closed-loop, no fine-tuning</th>
+                  <td class="col-sr-bar">
+                    <div class="sr-cell-inner">
+                      <span class="sr-val">56.09</span>
+                      <span class="sr-mini-bar" aria-hidden="true"><span style="width: 69.08%;"></span></span>
+                    </div>
+                  </td>
+                  <td class="cell-best"><strong>7.25</strong></td>
+                  <td>16.10</td>
+                  <td>46.89</td>
+                  <td>69.83</td>
+                </tr>
+                <tr>
+                  <th scope="row">Planner-only fine-tuning</th>
+                  <td class="col-sr-bar">
+                    <div class="sr-cell-inner">
+                      <span class="sr-val">56.98</span>
+                      <span class="sr-mini-bar" aria-hidden="true"><span style="width: 70.18%;"></span></span>
+                    </div>
+                  </td>
+                  <td>7.75</td>
+                  <td>16.36</td>
+                  <td>47.02</td>
+                  <td>70.60</td>
+                </tr>
+                <tr>
+                  <th scope="row">Controller-only fine-tuning</th>
+                  <td class="col-sr-bar">
+                    <div class="sr-cell-inner">
+                      <span class="sr-val">73.37</span>
+                      <span class="sr-mini-bar" aria-hidden="true"><span style="width: 90.37%;"></span></span>
+                    </div>
+                  </td>
+                  <td>8.44</td>
+                  <td>14.67</td>
+                  <td>35.72</td>
+                  <td>49.45</td>
+                </tr>
+                <tr class="table-divider-top">
+                  <th scope="row">InfCoiL C&rarr;P</th>
+                  <td class="col-sr-bar">
+                    <div class="sr-cell-inner">
+                      <span class="sr-val">77.24</span>
+                      <span class="sr-mini-bar sr-bar-cp" aria-hidden="true"><span style="width: 95.13%;"></span></span>
+                    </div>
+                  </td>
+                  <td>8.90</td>
+                  <td>14.76</td>
+                  <td>32.90</td>
+                  <td>45.37</td>
+                </tr>
+                <tr class="table-row-ours">
+                  <th scope="row"><strong>InfCoiL C&rarr;P&rarr;C</strong></th>
+                  <td class="col-sr-bar cell-best">
+                    <div class="sr-cell-inner">
+                      <strong class="sr-val">81.19</strong>
+                      <span class="sr-mini-bar sr-bar-ours" aria-hidden="true"><span style="width: 100%;"></span></span>
+                    </div>
+                  </td>
+                  <td>8.87</td>
+                  <td class="cell-best"><strong>14.21</strong></td>
+                  <td class="cell-best"><strong>31.31</strong></td>
+                  <td class="cell-best"><strong>41.51</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 6: CITATION
+         ===================================================================== -->
+    <section class="section section-porcelain" id="citation" aria-labelledby="citation-title">
+      <div class="container">
+        <div class="citation-card">
+          <div class="citation-topbar">
+            <div>
+              <span class="section-eyebrow">05 &middot; REFERENCE</span>
+              <h2 class="citation-heading" id="citation-title">BibTeX Citation</h2>
+            </div>
+            <div class="citation-actions">
+              <span class="copy-status" id="bibtex-copy-status" role="status" aria-live="polite"></span>
+              <button
+                type="button"
+                class="btn btn-primary btn-sm"
+                id="copy-bibtex-btn"
+                aria-label="Copy BibTeX citation to clipboard"
+              >
+                <span id="copy-bibtex-label">Copy BibTeX</span>
+              </button>
+            </div>
+          </div>
+          <pre class="bibtex-pre" id="bibtex-code" tabindex="0"><code>@misc{zou2026infcoil,
+  title  = {InfCoiL: Coordinated Planner-Controller Learning for Closed-Loop Physics-Based Human-Object Interaction},
+  author = {Zou, Yude and Yao, Yifei and Hao, Yiwei and Wang, Hanqing and Gao, Xing},
+  year   = {2026}
+}</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="footer-brand">InfCoiL</span>
+        <span class="footer-copy">Shanghai Jiao Tong University &amp; Shanghai Artificial Intelligence Laboratory</span>
+      </div>
+      <div class="footer-right">
+        <a href="assets/paper.pdf" class="footer-link" target="_blank" rel="noopener">Paper (PDF)</a>
+        <a href="https://github.com/securityCFS/InfCoiL" class="footer-link" target="_blank" rel="noopener">Code</a>
+        <a href="#top" class="footer-link">Back to top &uarr;</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Accessible Lightbox Modal -->
+  <div
+    class="lightbox-modal"
+    id="figure-lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="lightbox-title"
+    aria-describedby="lightbox-caption"
+    hidden
+  >
+    <div class="lightbox-backdrop" id="lightbox-backdrop" tabindex="-1"></div>
+    <div class="lightbox-dialog" role="document">
+      <div class="lightbox-header">
+        <h3 class="lightbox-title" id="lightbox-title">Figure View</h3>
+        <button
+          type="button"
+          class="lightbox-close-btn"
+          id="lightbox-close-btn"
+          aria-label="Close figure view"
+        >
+          <span>Close (Esc) &times;</span>
+        </button>
+      </div>
+      <div class="lightbox-stage">
+        <img id="lightbox-img" src="assets/framework.png" alt="Expanded figure view" />
+      </div>
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

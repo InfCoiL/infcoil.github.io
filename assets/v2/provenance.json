@@ -1,0 +1,29 @@
+{
+  "source_paper_commit": "77845ac3f3e45c682077cbc5d798bf639913a226",
+  "paper_table": "Table 1; 8 rows x 5 metrics; exact numeric match",
+  "qualitative_recordings": "Historical selected examples, same monitor task/subject/object but different seeds; not fresh final-schedule evaluations",
+  "rendering": {
+    "resolution": [
+      1280,
+      720
+    ],
+    "fps": 30,
+    "renderer": "Blender 4.2 Cycles, 16 samples, OptiX denoising",
+    "camera": "Shared monitor comparison camera and lighting; full recorded timelines"
+  },
+  "smoothing": {
+    "window": 5,
+    "weights": [
+      1,
+      2,
+      3,
+      2,
+      1
+    ],
+    "passes": 1,
+    "preserve_raw_pelvis_translation": true,
+    "preserve_raw_object_translation": true,
+    "benchmark_outputs_modified": false
+  },
+  "playground": "Recorded raw/smoothed replay; optional MuJoCo kinematic-body/dynamic-object contact sandbox, no learned policy inference"
+}
