@@ -131,12 +131,12 @@ canvas {
 }
 
 .swatch-object {
-  border: 2px solid #0969da;
+  border: 2px solid #d94335;
   background: rgba(9, 105, 218, 0.18);
 }
 
 .swatch-pelvis {
-  border: 2px solid #d97706;
+  border: 2px solid #d94335;
   background: rgba(217, 119, 6, 0.18);
 }
 
@@ -243,3 +243,5 @@ a:hover {
     font-size: 11px;
   }
 }
+
+#goal-celebration{position:absolute;top:54px;left:50%;transform:translateX(-50%);z-index:2;background:rgba(255,255,255,.94);border:1px solid #83bd98;border-radius:4px;color:#146f36;padding:7px 14px;white-space:nowrap;font-weight:600;pointer-events:none}

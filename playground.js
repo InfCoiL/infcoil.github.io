@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {GoalEffects} from './goal-effects.js';
 import {OrbitControls} from './vendor/three/examples/jsm/controls/OrbitControls.js';
 
 const $=s=>document.getElementById(s), base='assets/v2/';
@@ -107,6 +108,8 @@ const pelvisGoalMat=new THREE.MeshBasicMaterial({color:0xd97706,side:THREE.Doubl
 const pelvisGoalFillMat=new THREE.MeshBasicMaterial({color:0xd97706,side:THREE.DoubleSide,transparent:true,opacity:0.10,depthWrite:false});
 const pelvisGoalLineMat=new THREE.LineBasicMaterial({color:0xd97706});
 
+const goalEffects=new GoalEffects(scene,[objGoalMat,objGoalFillMat,objGoalLineMat],[pelvisGoalMat,pelvisGoalFillMat,pelvisGoalLineMat]);
+
 function clearGoalMarkers(){
   while(goalGroup.children.length){
     const ch=goalGroup.children[0];
@@ -134,7 +137,7 @@ function buildGoalMarkers(goals){
     const [ox,oy,oz]=goals.object_goal;
     const zTop=Math.max(zGround+0.02,oz);
 
-    // Blue object target ring (r = 0.3) on ground
+    // Object target ring; color tracks actual goal error.
     const ringMesh=new THREE.Mesh(new THREE.RingGeometry(0.276,0.30,64),objGoalMat);
     ringMesh.position.set(ox,oy,zGround);
     goalGroup.add(ringMesh);
@@ -173,12 +176,12 @@ function buildGoalMarkers(goals){
     const [px,py]=goals.pelvis_goal;
     const zPelvis=0.004;
 
-    // Amber pelvis target ring (r = 0.16) on ground
-    const pRingMesh=new THREE.Mesh(new THREE.RingGeometry(0.140,0.16,48),pelvisGoalMat);
+    // Pelvis target ring; XY acceptance radius is 0.3 m.
+    const pRingMesh=new THREE.Mesh(new THREE.RingGeometry(0.276,0.30,64),pelvisGoalMat);
     pRingMesh.position.set(px,py,zPelvis);
     goalGroup.add(pRingMesh);
 
-    const pFillMesh=new THREE.Mesh(new THREE.CircleGeometry(0.140,48),pelvisGoalFillMat);
+    const pFillMesh=new THREE.Mesh(new THREE.CircleGeometry(0.276,64),pelvisGoalFillMat);
     pFillMesh.position.set(px,py,zPelvis-0.0005);
     goalGroup.add(pFillMesh);
 
@@ -198,6 +201,7 @@ function buildGoalMarkers(goals){
 function updateGoalVisibility(){
   const show=$('goals')?$('goals').checked:true;
   goalGroup.visible=show;
+  goalEffects.setVisible(show);
   if($('goal-legend'))$('goal-legend').hidden=!show;
 }
 
@@ -290,7 +294,7 @@ function poseAt(a,frame,i){
 
 function drawPose(){
   if(!active)return;
-  const f=Math.min(active.frames-1,Math.floor(time*30));
+  const f=Math.min(active.frames-1,Math.floor(time*30+1e-6));
   const a=physics?raw:($('smooth').checked?smoothed:raw);
   for(let i=0;i<53;i++){
     const p=poseAt(a,f,i);
@@ -302,6 +306,7 @@ function drawPose(){
     meshes[52].position.set(q[0],q[1],q[2]);
     meshes[52].quaternion.set(q[4],q[5],q[6],q[3]);
   }
+  goalEffects.update(f,meshes[52].position.toArray(),meshes[0].position.toArray(),!!physics);
   $('timeline').value=time;
   $('clock').textContent=`${time.toFixed(2)} s`;
 }
@@ -361,6 +366,7 @@ async function loadCase(requestedId){
 
     const goals=resolveGoals(activeCurated,raw,c.frames);
     activeCurated={...activeCurated,...goals};
+    goalEffects.setCase(raw,c.frames,goals);
     buildGoalMarkers(goals);
     fitCameraToScene(c,goals);
 
@@ -381,6 +387,7 @@ async function loadCase(requestedId){
 async function changeMode(){
   setPlaying(false);
   disposePhysics();
+  goalEffects.reset();
   time=0;
   const sandbox=$('mode').value==='physics';
   $('push').hidden=!sandbox;
@@ -511,6 +518,7 @@ function tick(now){
     }
     drawPose();
   }
+  goalEffects.tick(now);
   controls.update();
   renderer.render(scene,camera);
 }
@@ -526,6 +534,7 @@ window.__playground={
       object_goal:activeCurated?.object_goal||null,
       pelvis_goal:activeCurated?.pelvis_goal||null,
       goalsVisible:goalGroup.visible,
+      goalFeedback:goalEffects.state,
       time,
       playing,
       physics:!!physics,

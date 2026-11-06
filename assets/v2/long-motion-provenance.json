@@ -32,5 +32,17 @@
     }
   ],
   "source_revision": "4976a7b87665a0688100755854ad27a7224c90cc",
-  "planner_sha256": "f08cf79944d7b3d2c7b1d9f1569dbcc715a45f14ddbf60f985bcf606daa31872"
+  "planner_sha256": "f08cf79944d7b3d2c7b1d9f1569dbcc715a45f14ddbf60f985bcf606daa31872",
+  "presentation_effects": {
+    "ring_threshold_m": 0.3,
+    "object_dimensions": "XYZ",
+    "pelvis_dimensions": "XY",
+    "confetti": "10 consecutive in-tolerance frames with object speed <0.2 m/s",
+    "final_pose_hold_frames": 45,
+    "fps": 30,
+    "event_manifests": [
+      "s2-long-table-events.json",
+      "s2-long-tripod-events.json"
+    ]
+  }
 }

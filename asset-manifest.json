@@ -84,8 +84,8 @@
     "sha256": "46c70c896285ee3a95b5989f946b94de57c490623b577dc1538e2fc3789bbde3"
   },
   "assets/v2/long-motion-provenance.json": {
-    "bytes": 1478,
-    "sha256": "776f7bff7f58ec1e5b027cfd200fee908a5d8f4d2786d4eada1aa770d96f8cc1"
+    "bytes": 1835,
+    "sha256": "6c2def4a206eada6f508437305c9e3326f69f776eac79027b0ce91be1a3c139b"
   },
   "assets/v2/monitor-ours-poster.jpg": {
     "bytes": 27111,
@@ -140,16 +140,20 @@
     "sha256": "991b50467f5a14c389e46ec406b25be73f32884838597b5a624093cf67bf5208"
   },
   "assets/v2/motions.json": {
-    "bytes": 8986,
-    "sha256": "d5d18cd8cb64cfea6094e7356eb96d6141918b3f8e953c03b7284ed1cae1e4c8"
+    "bytes": 11165,
+    "sha256": "00a5797e2383120fd0420343f27ca7735a0dc7537787fb161ff68fa1f613f3bc"
   },
   "assets/v2/provenance.json": {
     "bytes": 926,
     "sha256": "90f14c3b1a7c589edc962059fc010c7d5b09acfa47695808b06d3c4debcd8b06"
   },
+  "assets/v2/s2-long-table-events.json": {
+    "bytes": 13038,
+    "sha256": "f646881e10b376c7a01134f06965a2e1aa752102a16b465d8c8b2c8c5e3f904f"
+  },
   "assets/v2/s2-long-table-poster.jpg": {
-    "bytes": 20877,
-    "sha256": "adb5e66fce5384ad8678d9d1def3b23f597f6ca4ac4528313e6a069b5b08a058"
+    "bytes": 25083,
+    "sha256": "d823093811b32c58e55b7a22e8bc9de74ee2933eb4b95f5f7fd84a979755092a"
   },
   "assets/v2/s2-long-table-raw.bin": {
     "bytes": 480816,
@@ -160,12 +164,16 @@
     "sha256": "58c2011cbf59e9f98b1cab2d60a1753a9ab97fbd6dae8047c33ff4eeba4da6c1"
   },
   "assets/v2/s2-long-table.mp4": {
-    "bytes": 906785,
-    "sha256": "277ace9c4f7591308c1ff9ebaf29a60f56516fd33c3ab6d482e2e14a8c55a26e"
+    "bytes": 980827,
+    "sha256": "5473541606875013ab9727f7d7aacd41390654b4c1efd366c5e75a272f8e17c9"
+  },
+  "assets/v2/s2-long-tripod-events.json": {
+    "bytes": 8853,
+    "sha256": "f658862fdcaf54facdf68efde5344580d08c8c801e755f49d5fee3c87c3bb18c"
   },
   "assets/v2/s2-long-tripod-poster.jpg": {
-    "bytes": 22755,
-    "sha256": "199fe0d3e530374dd87cb4ef2b1703aea9a2a08114a274247836a4dca036763d"
+    "bytes": 28762,
+    "sha256": "135c4005c56b4908bdff389a2bf39f247aa59b13176e925370629419ed3aa0bf"
   },
   "assets/v2/s2-long-tripod-raw.bin": {
     "bytes": 319060,
@@ -176,8 +184,8 @@
     "sha256": "df27a84036885c32062a5edb85427fdf4e93d258473b288d80d9b4e465688bfa"
   },
   "assets/v2/s2-long-tripod.mp4": {
-    "bytes": 764871,
-    "sha256": "ae8260506bbc4c9f030e8dd5f58c210cb2eec57d63f4875f3d7de2ba5eeed4c4"
+    "bytes": 937320,
+    "sha256": "7bebbeab9cc64cd41be5797caaa61ee0598c9f41ed9d8a6fddaa901d42617163"
   },
   "assets/v2/sub11-monitor.json": {
     "bytes": 12469646,
@@ -247,21 +255,25 @@
     "bytes": 23697,
     "sha256": "7e5e02592b9107b762f6d8f53831ba23f8e5ea497da3862836da179e5dcd9b55"
   },
+  "goal-effects.js": {
+    "bytes": 4395,
+    "sha256": "21d6c22bf8031b6710f11afa481930ad4b5df81aba9e95d62ff6248e37ba48ab"
+  },
   "index.html": {
-    "bytes": 20233,
-    "sha256": "6524833863622727bce6da264b56420c34a1523cea7bd261a2290752944a38bc"
+    "bytes": 19908,
+    "sha256": "e2ea582142851297517f826d315ae471decd509bc72054b81bbee25c4a8beb03"
   },
   "playground.css": {
-    "bytes": 2750,
-    "sha256": "a44f9c4ca7d4a314febac23396cdc14f1423b169f989191becf7b3cd621be948"
+    "bytes": 3816,
+    "sha256": "e389776eb1f8864e7537f4a52f8d4fdae6308c6b65e8154c738383d4167707db"
   },
   "playground.html": {
-    "bytes": 2934,
-    "sha256": "a315bdaea0dbe6fbac82cf5b35de8024833c5704b146db0e4807fdf72bfa8610"
+    "bytes": 3301,
+    "sha256": "c977715ebd580484c5009fde71a6e4dfae8db056ae0657dc6e4bb14af6ea4307"
   },
   "playground.js": {
-    "bytes": 8878,
-    "sha256": "de3c1e0e1c00e56ae886f460be1c6cd4156187158fc393707e2a4b96874ff41e"
+    "bytes": 18319,
+    "sha256": "ee6f0f274eaff58cb7ea143cdc93a17360cca79d6cb1c17f5e500f9abbcb0834"
   },
   "serve.py": {
     "bytes": 2521,
@@ -269,7 +281,7 @@
   },
   "styles.css": {
     "bytes": 10385,
-    "sha256": "9715ab5e7e19a1000a5b292fa350b4d5214c934d3a13d5d1e3559163a158856b"
+    "sha256": "2440332cb97505deacfddffd5e542fd35ce44327627598a067234a17bc6355ae"
   },
   "vendor/mujoco/LICENSE": {
     "bytes": 11358,
@@ -308,7 +320,7 @@
     "sha256": "e7fca2fe9e7670a828af9b28084669a5909445b7f36f1f26cee9bf8f2961c32c"
   },
   "verification.json": {
-    "bytes": 2261,
-    "sha256": "831db96704d66bfe8040f94159d815aa2e6c69dad3b106a0cd4cbe1562794e8e"
+    "bytes": 2314,
+    "sha256": "097be594d3849b6e9c4f45e847a1f4e61fac63b57a5e2c9537209f252867fc1f"
   }
 }
