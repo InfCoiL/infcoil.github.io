@@ -100,6 +100,46 @@ canvas {
   color: #111111;
 }
 
+.legend {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #d0d7de;
+  padding: 4px 9px;
+  font-size: 11px;
+  color: #222222;
+  pointer-events: none;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.swatch-object {
+  border: 2px solid #0969da;
+  background: rgba(9, 105, 218, 0.18);
+}
+
+.swatch-pelvis {
+  border: 2px solid #d97706;
+  background: rgba(217, 119, 6, 0.18);
+}
+
 .hint {
   position: absolute;
   right: 12px;
@@ -184,11 +224,22 @@ a:hover {
   #viewport {
     height: 350px;
   }
+  .legend {
+    left: 8px;
+    bottom: 34px;
+    font-size: 10px;
+    padding: 3px 7px;
+    gap: 8px;
+  }
   .hint {
+    right: 8px;
+    bottom: 8px;
     font-size: 10px;
   }
   #status {
-    max-width: 90%;
+    left: 8px;
+    top: 8px;
+    max-width: 92%;
     font-size: 11px;
   }
 }

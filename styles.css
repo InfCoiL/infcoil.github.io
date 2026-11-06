@@ -201,9 +201,9 @@ pre:focus-visible,
   gap: 16px;
 }
 
-.video-grid-4 {
+.video-grid-3 {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   margin-top: 12px;
 }
@@ -536,7 +536,7 @@ pre:focus-visible,
   }
 
   .video-pair,
-  .video-grid-4 {
+  .video-grid-3 {
     grid-template-columns: 1fr;
     gap: 18px;
   }

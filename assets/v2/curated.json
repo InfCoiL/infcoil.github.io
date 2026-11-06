@@ -1,0 +1,100 @@
+{
+  "cases": [
+    {
+      "id": "s2-long-table",
+      "object": "largetable",
+      "title": "Table",
+      "object_goal": [
+        0.3518049716949463,
+        -3.1212310791015625,
+        0.3702779710292816
+      ],
+      "pelvis_goal": [
+        0.6167154908180237,
+        -3.6157402992248535,
+        0.0
+      ],
+      "source_id": "s2-long-table",
+      "source_sha256": "774d93bcf8a33650ba75a340a17f27fb7c45b870f81b72b31170047cbe43549d",
+      "display_frames": 324,
+      "stop": "stable_goal_arrival"
+    },
+    {
+      "id": "s2-long-tripod",
+      "object": "tripod",
+      "title": "Tripod",
+      "object_goal": [
+        -2.2250638008117676,
+        -2.5550971031188965,
+        0.5361657738685608
+      ],
+      "pelvis_goal": [
+        -2.439525842666626,
+        -2.0516738891601562,
+        0.0
+      ],
+      "source_id": "s2-long-tripod",
+      "source_sha256": "9b7f0b22582fb043b7c9847dc576a420f2b891902ba23ae9faf0ae782f29714f",
+      "display_frames": 215,
+      "stop": "stable_goal_arrival"
+    },
+    {
+      "id": "curated-monitor",
+      "object": "monitor",
+      "title": "Monitor",
+      "object_goal": [
+        -1.27118718624115,
+        0.27259907126426697,
+        1.032929539680481
+      ],
+      "pelvis_goal": [
+        -0.7868025302886963,
+        0.19259855151176453,
+        0.0
+      ],
+      "source_id": "monitor-ours",
+      "source_sha256": "f15030c86fb4bacb987a8962ec8437d35ffce06f5dc946abb64baa48bd0524b7",
+      "display_frames": 284,
+      "stop": "stable_goal_arrival"
+    },
+    {
+      "id": "floorlamp-ours",
+      "object": "floorlamp",
+      "title": "Floor lamp",
+      "object_goal": [
+        -0.09568571299314499,
+        -0.3424960970878601,
+        0.9072510600090027
+      ],
+      "pelvis_goal": [
+        0.07156004011631012,
+        0.030037682503461838,
+        0.0
+      ],
+      "source_id": "floorlamp-ours",
+      "source_sha256": "588a2f5361d672c32ac7a1df4c2a3197ea1c6d95efaea38b4895221abb58ca82",
+      "display_frames": 200,
+      "stop": "recorded_end"
+    },
+    {
+      "id": "curated-woodchair",
+      "object": "woodchair",
+      "title": "Wood chair",
+      "object_goal": [
+        0.3100823760032654,
+        -0.12580303847789764,
+        0.4640331566333771
+      ],
+      "pelvis_goal": [
+        -0.06752312928438187,
+        0.2140091210603714,
+        0.0
+      ],
+      "source_id": "c45-s1-woodchair",
+      "source_sha256": "5b3f04f74d96052cc6be3fb253e78fd9ff4b0c0dbab5f406100d816c9b1b07ec",
+      "display_frames": 245,
+      "stop": "stable_goal_arrival"
+    }
+  ],
+  "selection": "One inspected example per object; jittery suitcase removed. Trimmed examples preserve original samples, no retiming or pose edits."
+}
