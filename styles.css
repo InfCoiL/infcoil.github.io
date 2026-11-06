@@ -1,6 +1,6 @@
 /* ==========================================================================
    InfCoiL Academic Paper Page — Minimalist Stylesheet (styles.css)
-   Restrained single-column layout · System sans-serif · Zero ornament
+   Restrained single-column layout, system sans-serif, zero ornament
    ========================================================================== */
 
 *,
@@ -94,20 +94,23 @@ pre:focus-visible,
 }
 
 .affiliation-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 20px;
   margin: 0 0 4px;
   font-size: 0.9375rem;
   color: #444444;
 }
 
 .author-notes {
-  margin: 0 0 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 18px;
+  margin: 0 0 18px;
   font-size: 0.84375rem;
   color: #555555;
-}
-
-.sep {
-  margin: 0 6px;
-  color: #888888;
 }
 
 .paper-links {
@@ -115,12 +118,37 @@ pre:focus-visible,
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  row-gap: 6px;
-  font-size: 0.96875rem;
+  gap: 8px;
 }
 
-.link-pending {
-  color: #555555;
+.header-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  appearance: none;
+  background-color: #ffffff;
+  color: #111111;
+  border: 1px solid #c9d1d9;
+  padding: 6px 14px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header-btn:hover:not(:disabled) {
+  background-color: #f3f4f6;
+  border-color: #8b949e;
+  color: #111111;
+}
+
+.header-btn:disabled {
+  background-color: #f9fafb;
+  color: #6b7280;
+  border-color: #d0d7de;
+  cursor: not-allowed;
 }
 
 /* ==========================================================================
@@ -496,9 +524,15 @@ pre:focus-visible,
     font-size: 0.96875rem;
   }
 
-  .affiliation-list,
-  .paper-links {
+  .affiliation-list {
     font-size: 0.9rem;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .header-btn {
+    padding: 6px 11px;
+    font-size: 0.84375rem;
   }
 
   .video-pair,

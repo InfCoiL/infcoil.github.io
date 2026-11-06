@@ -52,7 +52,7 @@
         "open": 0,
         "playing": 0,
         "tableWidth": 358,
-        "tableScroll": 658
+        "tableScroll": 665
       },
       {
         "width": 360,
@@ -63,7 +63,7 @@
         "open": 0,
         "playing": 0,
         "tableWidth": 328,
-        "tableScroll": 658
+        "tableScroll": 665
       },
       {
         "comparisonSeekFreezeSwitchSync": true,
@@ -91,5 +91,7 @@
   "primary_video_playback": {
     "preload": "none",
     "bothVideosPlay": true
-  }
+  },
+  "resource_buttons": true,
+  "middot_removed": true
 }

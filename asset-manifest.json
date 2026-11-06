@@ -12,8 +12,8 @@
     "sha256": "a8d6a4f408ca6bfb283d68c2e0608996486ac1ba7dbfbe288c0775e547080875"
   },
   "app.js": {
-    "bytes": 13782,
-    "sha256": "84b5a0acec2c69818a919a6b24346f3c3c6b4a791d36baa59073b500190862ff"
+    "bytes": 13535,
+    "sha256": "5eb028a8dc41c88435861d9babd589598094bf42fc4b58d5a12c54d544e304e0"
   },
   "assets/framework.png": {
     "bytes": 2123836,
@@ -248,28 +248,28 @@
     "sha256": "7e5e02592b9107b762f6d8f53831ba23f8e5ea497da3862836da179e5dcd9b55"
   },
   "index.html": {
-    "bytes": 20570,
-    "sha256": "12bbad07541a095cf63c5e2eb6f2688dfc03bd4efcf32a1c52c536a4a2b89541"
+    "bytes": 20233,
+    "sha256": "6524833863622727bce6da264b56420c34a1523cea7bd261a2290752944a38bc"
   },
   "playground.css": {
     "bytes": 2750,
     "sha256": "a44f9c4ca7d4a314febac23396cdc14f1423b169f989191becf7b3cd621be948"
   },
   "playground.html": {
-    "bytes": 2956,
-    "sha256": "c27a1a87e9a19547f53673cafc16a42c9051f32a23fe43978ce16ca4b5f7e3c2"
+    "bytes": 2934,
+    "sha256": "a315bdaea0dbe6fbac82cf5b35de8024833c5704b146db0e4807fdf72bfa8610"
   },
   "playground.js": {
-    "bytes": 8206,
-    "sha256": "4d47b66a9acd4ea1bda54fbd0467a6f9a2a5629b53ccd6b1da8889e09c8190b6"
+    "bytes": 8878,
+    "sha256": "de3c1e0e1c00e56ae886f460be1c6cd4156187158fc393707e2a4b96874ff41e"
   },
   "serve.py": {
     "bytes": 2521,
     "sha256": "d121f7e69651b96b8002758d06abe6deee8e6719918e5f7807ce05a1def6fb7d"
   },
   "styles.css": {
-    "bytes": 9673,
-    "sha256": "6a3ffb22b13d8291c787d7eea0e8c89e4e230f6305148a4ff22dc81f4c3b50a2"
+    "bytes": 10385,
+    "sha256": "9715ab5e7e19a1000a5b292fa350b4d5214c934d3a13d5d1e3559163a158856b"
   },
   "vendor/mujoco/LICENSE": {
     "bytes": 11358,

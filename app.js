@@ -1,6 +1,6 @@
 /* ==========================================================================
    InfCoiL Minimalist Paper Page — Client Script (app.js)
-   Browser-native · Elapsed-second comparison sync · BibTeX copy status
+   Browser-native, elapsed-second comparison sync, BibTeX copy status
    ========================================================================== */
 
 (function () {
@@ -13,9 +13,8 @@
     sft: {
       key: 'sft',
       pillLabel: 'SFT Cascade Baseline',
-      durationMeta: '2.83 s recording (85 frames @ 30 fps)',
       endedText: 'Baseline recording ended at 2.83 s (holding final frame)',
-      caption: 'Open-loop SFT cascade rollout ends at 2.83 s in this recorded example.',
+      caption: 'Open-loop SFT cascade rollout ends at 2.83 s (85 frames at 30 fps) in this recorded example.',
       videoSrc: 'assets/v2/monitor-sft.mp4',
       posterSrc: 'assets/v2/monitor-sft-poster.jpg',
       nominalDuration: 2.833
@@ -23,9 +22,8 @@
     student: {
       key: 'student',
       pillLabel: 'InterMimic Student Baseline',
-      durationMeta: '3.00 s recording (90 frames @ 30 fps)',
       endedText: 'Baseline recording ended at 3.00 s (holding final frame)',
-      caption: 'Open-loop InterMimic student rollout ends at 3.00 s without closed-loop replanning.',
+      caption: 'Open-loop InterMimic student rollout ends at 3.00 s (90 frames at 30 fps) without closed-loop replanning.',
       videoSrc: 'assets/v2/monitor-student.mp4',
       posterSrc: 'assets/v2/monitor-student-poster.jpg',
       nominalDuration: 3.0
@@ -43,7 +41,6 @@
   const baselineTabs = document.querySelectorAll('.baseline-tab');
 
   const baselinePillLabel = document.getElementById('baseline-pill-label');
-  const baselineDurationMeta = document.getElementById('baseline-duration-meta');
   const baselineEndedBadge = document.getElementById('baseline-ended-badge');
   const baselineEndedText = document.getElementById('baseline-ended-text');
   const baselinePaneCaption = document.getElementById('baseline-pane-caption');
@@ -211,7 +208,6 @@
     });
 
     if (baselinePillLabel) baselinePillLabel.textContent = cfg.pillLabel;
-    if (baselineDurationMeta) baselineDurationMeta.textContent = cfg.durationMeta;
     if (baselineEndedText) baselineEndedText.textContent = cfg.endedText;
     if (baselinePaneCaption) baselinePaneCaption.textContent = cfg.caption;
 

@@ -1,6 +1,23 @@
 import * as THREE from 'three';
 import {OrbitControls} from './vendor/three/examples/jsm/controls/OrbitControls.js';
 const $=s=>document.getElementById(s), base='assets/v2/';
+const CASE_NAMES={
+  's2-long-table':'Table transport (C45k, S=2)',
+  's2-long-tripod':'Tripod transport (C45k, S=2)',
+  'c45-s2-woodchair':'Wood chair (new C45k, S=2)',
+  'c45-s1-woodchair':'Wood chair (new C45k, S=1)',
+  'monitor-ours':'Monitor (InfCoiL)',
+  'monitor-sft':'Monitor (SFT cascade)',
+  'monitor-student':'Monitor (InterMimic student)',
+  'suitcase-ours':'Suitcase (InfCoiL)',
+  'floorlamp-ours':'Floor lamp (InfCoiL)',
+  'woodchair-ours':'Wood chair (InfCoiL)'
+};
+function formatCaseTitle(c){
+  if(!c)return 'Recorded motion';
+  if(CASE_NAMES[c.id])return CASE_NAMES[c.id];
+  return String(c.object||c.id||'Motion').replace(/\u00b7/g,' ').replace(/\s+/g,' ').trim();
+}
 let manifest,active,raw,smoothed,meshes=[],playing=false,time=0,last=0,serial=0,physics=null,mj=null,pushUntil=0,loading=false;
 const status=t=>{$('status').textContent=t;};
 const scene=new THREE.Scene();scene.background=new THREE.Color('#e9e8e1');scene.up.set(0,0,1);
@@ -29,8 +46,8 @@ async function loadCase(id){let token=++serial;loading=true;$('motion').disabled
  active=c;raw=r;smoothed=s;time=0;$('timeline').max=(c.frames-1)/30;const center=new THREE.Vector3((c.bounds[0][0]+c.bounds[1][0])/2,(c.bounds[0][1]+c.bounds[1][1])/2,.85);controls.target.copy(center);camera.position.copy(center).add(new THREE.Vector3(2.4,-3.4,1.9));sun.target.position.copy(center);sun.position.copy(center).add(new THREE.Vector3(3,-4,7));controls.update();$('play').disabled=false;$('reset').disabled=false;$('mode').disabled=false;loading=false;await changeMode();drawPose();
  }catch(e){status('Unable to load this motion. Please reload.');console.error(e);loading=false;$('motion').disabled=false;}}
 async function changeMode(){setPlaying(false);disposePhysics();time=0;const sandbox=$('mode').value==='physics';$('push').hidden=!sandbox;$('timeline').disabled=sandbox;$('smooth-label').hidden=sandbox;$('play').disabled=true;$('reset').disabled=true;$('mode').disabled=true;$('motion').disabled=true;
- try{if(sandbox){status('Loading MuJoCo physics…');if(!mj){const mod=await import('./vendor/mujoco/mujoco.js');mj=await mod.default();}const response=await fetch(base+active.object+'-sandbox.xml');if(!response.ok)throw Error('Physics model missing');const model=mj.MjModel.from_xml_string(await response.text());const data=new mj.MjData(model);physics={model,data};resetPhysics();status('MuJoCo live physics · recorded body, dynamic object');$('description').textContent='Press Play, then push the object. Body motion follows the recording; only the object responds to live physics. The trained policy is not running.';
- }else{status(`${active.label} · ${active.object} · recorded trajectory`);$('description').textContent='Drag to inspect the interaction from any angle. Toggle display smoothing to compare with the original recorded poses. Raw pelvis and object translations are preserved.';}
+ try{if(sandbox){status('Loading MuJoCo physics…');if(!mj){const mod=await import('./vendor/mujoco/mujoco.js');mj=await mod.default();}const response=await fetch(base+active.object+'-sandbox.xml');if(!response.ok)throw Error('Physics model missing');const model=mj.MjModel.from_xml_string(await response.text());const data=new mj.MjData(model);physics={model,data};resetPhysics();status('MuJoCo live physics (recorded body, dynamic object)');$('description').textContent='Press Play, then push the object. Body motion follows the recording; only the object responds to live physics. The trained policy is not running.';
+ }else{status(`${formatCaseTitle(active)} recorded trajectory`);$('description').textContent='Drag to inspect the interaction from any angle. Toggle display smoothing to compare with the original recorded poses. Raw pelvis and object translations are preserved.';}
  $('play').disabled=false;$('reset').disabled=false;
  }catch(e){console.error(e);status('MuJoCo could not start. Recorded replay remains available.');$('mode').value='replay';disposePhysics();$('timeline').disabled=false;$('push').hidden=true;$('smooth-label').hidden=false;$('play').disabled=false;$('reset').disabled=false;}finally{$('mode').disabled=false;$('motion').disabled=false;drawPose();}}
 function resetPhysics(){if(!physics)return;mj.mj_resetData(physics.model,physics.data);const p=poseAt(raw,0,52);physics.data.qpos.set([p[0],p[1],p[2],p[6],p[3],p[4],p[5]]);pushUntil=0;setMocap(0);mj.mj_forward(physics.model,physics.data);}
