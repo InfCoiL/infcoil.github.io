@@ -16,3 +16,14 @@ available. The MuJoCo sandbox runs object physics, not learned-policy inference.
 
 See assets/v2/long-motion-provenance.json for recording metadata and
 assets/v2/motions.json for source hashes. Library licenses are under vendor/.
+
+## Minimal presentation
+
+White single-column academic layout: title and authors, two transport videos,
+method and framework, full Table 1, collapsed earlier comparisons, and BibTeX.
+The 3D/MuJoCo viewer is a separate page. No build tools or external fonts.
+
+Editable files: index.html, styles.css, app.js and playground.css.
+The paper, all 40 table values, author metadata and existing media were preserved.
+Historical clips remain distinct from the final C→P→C quantitative benchmark.
+Verification is recorded in verification.json; asset hashes in asset-manifest.json.

@@ -8,12 +8,12 @@
     "sha256": "0f46b4435382f2c51a650219d97bca5b11c99d5f4676cfce463e91b7aaae5d01"
   },
   "README.md": {
-    "bytes": 990,
-    "sha256": "913f426215767bff92ce3758c243a543b22eb5f8042ff5b4ef7f5f63526dbd45"
+    "bytes": 1565,
+    "sha256": "a8d6a4f408ca6bfb283d68c2e0608996486ac1ba7dbfbe288c0775e547080875"
   },
   "app.js": {
-    "bytes": 18747,
-    "sha256": "ce3e4ca4ae321ecf96cf7293a16fe7ff05b0566f064f71effba5b94e0beaa69e"
+    "bytes": 13782,
+    "sha256": "84b5a0acec2c69818a919a6b24346f3c3c6b4a791d36baa59073b500190862ff"
   },
   "assets/framework.png": {
     "bytes": 2123836,
@@ -248,12 +248,12 @@
     "sha256": "7e5e02592b9107b762f6d8f53831ba23f8e5ea497da3862836da179e5dcd9b55"
   },
   "index.html": {
-    "bytes": 42180,
-    "sha256": "9a774a913d1b2cd1fe0048018be45d20b533ffc7c73f12db643f7215160326cd"
+    "bytes": 20570,
+    "sha256": "33d0cc7165ca9169e6119c57ba71a9251363c0e19e5ec970fe6193141ecbde95"
   },
   "playground.css": {
-    "bytes": 1636,
-    "sha256": "959351120c0aedb0cc5fc190f0e3df4fd2b1e8681696a213f46826c5a560e201"
+    "bytes": 2750,
+    "sha256": "a44f9c4ca7d4a314febac23396cdc14f1423b169f989191becf7b3cd621be948"
   },
   "playground.html": {
     "bytes": 2956,
@@ -268,8 +268,8 @@
     "sha256": "d121f7e69651b96b8002758d06abe6deee8e6719918e5f7807ce05a1def6fb7d"
   },
   "styles.css": {
-    "bytes": 33637,
-    "sha256": "773e3749f4023162cf2f5c5bac3ea09bacfd8624f1dee03755c0905a1e1ff80d"
+    "bytes": 9673,
+    "sha256": "6a3ffb22b13d8291c787d7eea0e8c89e4e230f6305148a4ff22dc81f4c3b50a2"
   },
   "vendor/mujoco/LICENSE": {
     "bytes": 11358,
@@ -308,7 +308,7 @@
     "sha256": "e7fca2fe9e7670a828af9b28084669a5909445b7f36f1f26cee9bf8f2961c32c"
   },
   "verification.json": {
-    "bytes": 708,
-    "sha256": "6ce3c39f6d99889170fea5b99a10d990a0674de9582b2a5aba76cdb83dcfcc9f"
+    "bytes": 2176,
+    "sha256": "274ec5368319be3eda3af3d3aaf94cb42cf9630aadfe16a0663f3a3a0cf1b57f"
   }
 }

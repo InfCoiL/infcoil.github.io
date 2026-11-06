@@ -1,47 +1,91 @@
 {
-  "checks": [
-    {
-      "width": 1440,
-      "noOverflow": true,
-      "durations": [
-        10.8,
-        7.166667
-      ]
-    },
-    {
-      "width": 768,
-      "noOverflow": true,
-      "durations": [
-        10.8,
-        7.166667
-      ]
-    },
-    {
-      "width": 390,
-      "noOverflow": true,
-      "durations": [
-        10.8,
-        7.166667
-      ]
-    },
-    {
-      "width": 360,
-      "noOverflow": true,
-      "durations": [
-        10.8,
-        7.166667
-      ]
-    },
-    {
-      "id": "s2-long-table",
-      "rawReplay": true,
-      "physicsAdvances": true
-    },
-    {
-      "id": "s2-long-tripod",
-      "rawReplay": true,
-      "physicsAdvances": true
-    }
-  ],
-  "errors": []
+  "design": "minimal academic project page",
+  "previous_release": "8ce54d4cbe78f1b65f7bb6c8636ad241eb707fa4",
+  "content": {
+    "table_values": 40,
+    "exact_match": true,
+    "authors_preserved": true,
+    "assets_unchanged": true,
+    "relative_links_resolve": true
+  },
+  "browser": {
+    "checks": [
+      {
+        "width": 1440,
+        "overflow": false,
+        "bg": "rgb(255, 255, 255)",
+        "h1": 1,
+        "frames": 0,
+        "open": 0,
+        "playing": 0,
+        "tableWidth": 880,
+        "tableScroll": 880
+      },
+      {
+        "width": 1024,
+        "overflow": false,
+        "bg": "rgb(255, 255, 255)",
+        "h1": 1,
+        "frames": 0,
+        "open": 0,
+        "playing": 0,
+        "tableWidth": 880,
+        "tableScroll": 880
+      },
+      {
+        "width": 768,
+        "overflow": false,
+        "bg": "rgb(255, 255, 255)",
+        "h1": 1,
+        "frames": 0,
+        "open": 0,
+        "playing": 0,
+        "tableWidth": 728,
+        "tableScroll": 728
+      },
+      {
+        "width": 390,
+        "overflow": false,
+        "bg": "rgb(255, 255, 255)",
+        "h1": 1,
+        "frames": 0,
+        "open": 0,
+        "playing": 0,
+        "tableWidth": 358,
+        "tableScroll": 658
+      },
+      {
+        "width": 360,
+        "overflow": false,
+        "bg": "rgb(255, 255, 255)",
+        "h1": 1,
+        "frames": 0,
+        "open": 0,
+        "playing": 0,
+        "tableWidth": 328,
+        "tableScroll": 658
+      },
+      {
+        "comparisonSeekFreezeSwitchSync": true,
+        "collapsePauses": true,
+        "citationCopies": true
+      },
+      {
+        "noJavaScriptContent": true
+      },
+      {
+        "viewerWidth": 1100,
+        "rawSmoothedReplay": true,
+        "physicsAdvances": true
+      },
+      {
+        "viewerWidth": 390,
+        "rawSmoothedReplay": true,
+        "physicsAdvances": true
+      }
+    ],
+    "errors": []
+  },
+  "scientific_text": "SFPO terminology, phase lengths, table protocol and historical clip labels checked against supplied manuscript and media manifest",
+  "media": "Existing assets unchanged; no new policy training or video generation in this revision"
 }
