@@ -8,8 +8,8 @@
     "sha256": "0f46b4435382f2c51a650219d97bca5b11c99d5f4676cfce463e91b7aaae5d01"
   },
   "README.md": {
-    "bytes": 921,
-    "sha256": "cd14a3b1dffc7af744ef703c30e706304db68622d14017f37b24d7d359994a6e"
+    "bytes": 990,
+    "sha256": "913f426215767bff92ce3758c243a543b22eb5f8042ff5b4ef7f5f63526dbd45"
   },
   "app.js": {
     "bytes": 18747,
@@ -248,8 +248,8 @@
     "sha256": "7e5e02592b9107b762f6d8f53831ba23f8e5ea497da3862836da179e5dcd9b55"
   },
   "index.html": {
-    "bytes": 42204,
-    "sha256": "3301a2f0af15c40a3d96319dec3c02977d71fed29664300d05e825a2c2b63c32"
+    "bytes": 42180,
+    "sha256": "9a774a913d1b2cd1fe0048018be45d20b533ffc7c73f12db643f7215160326cd"
   },
   "playground.css": {
     "bytes": 1636,
@@ -268,8 +268,8 @@
     "sha256": "d121f7e69651b96b8002758d06abe6deee8e6719918e5f7807ce05a1def6fb7d"
   },
   "styles.css": {
-    "bytes": 33587,
-    "sha256": "9b794eea951d668469f1dc9d10a2ac90391123ec8c0978c6bf82c460f8e2c4c6"
+    "bytes": 33637,
+    "sha256": "773e3749f4023162cf2f5c5bac3ea09bacfd8624f1dee03755c0905a1e1ff80d"
   },
   "vendor/mujoco/LICENSE": {
     "bytes": 11358,

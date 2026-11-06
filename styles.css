@@ -1645,3 +1645,5 @@ a:hover {
 .checkpoint-new-deck .demo-card { min-width: 0; }
 .checkpoint-note { margin: 0; padding: 0 1.3rem 1.25rem; color: var(--ink-on-dark-muted); font-size: .78rem; line-height: 1.7; }
 .checkpoint-new-deck .btn-ghost { color: var(--ink-on-dark); border-color: var(--border-on-dark); }
+
+.code-pending { opacity: .65; cursor: default; }

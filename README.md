@@ -2,8 +2,8 @@
 
 Public website: https://infcoil.github.io/
 
-This repository contains the independent static project page. Code continues at
-https://github.com/securityCFS/InfCoiL and can be updated independently.
+This repository contains the independent static project page. Code release is pending and can be updated independently. The current code
+checkout remains separate; the public page will link it once anonymously accessible.
 
 GitHub Pages: Deploy from a branch → gh-pages → /(root).
 No build step is required. Local preview: `python serve.py --port 8768 --directory .`.
