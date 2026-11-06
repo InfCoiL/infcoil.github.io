@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {GoalEffects} from './goal-effects.js';
+import {GoalEffects} from './goal-effects.js?v=rings3';
 import {OrbitControls} from './vendor/three/examples/jsm/controls/OrbitControls.js';
 
 const $=s=>document.getElementById(s), base='assets/v2/';
@@ -131,6 +131,7 @@ function resolveGoals(curatedEntry,rawData,frames){
 
 function buildGoalMarkers(goals){
   clearGoalMarkers();
+  const pulseRings=[];
   const zGround=0.003;
 
   if(isValidVec3(goals?.object_goal)){
@@ -140,7 +141,7 @@ function buildGoalMarkers(goals){
     // Object target ring; color tracks actual goal error.
     const ringMesh=new THREE.Mesh(new THREE.RingGeometry(0.276,0.30,64),objGoalMat);
     ringMesh.position.set(ox,oy,zGround);
-    goalGroup.add(ringMesh);
+    goalGroup.add(ringMesh);pulseRings.push(ringMesh);
 
     const fillMesh=new THREE.Mesh(new THREE.CircleGeometry(0.276,64),objGoalFillMat);
     fillMesh.position.set(ox,oy,zGround-0.0005);
@@ -179,7 +180,7 @@ function buildGoalMarkers(goals){
     // Pelvis target ring; XY acceptance radius is 0.3 m.
     const pRingMesh=new THREE.Mesh(new THREE.RingGeometry(0.276,0.30,64),pelvisGoalMat);
     pRingMesh.position.set(px,py,zPelvis);
-    goalGroup.add(pRingMesh);
+    goalGroup.add(pRingMesh);pulseRings.push(pRingMesh);
 
     const pFillMesh=new THREE.Mesh(new THREE.CircleGeometry(0.276,64),pelvisGoalFillMat);
     pFillMesh.position.set(px,py,zPelvis-0.0005);
@@ -195,6 +196,7 @@ function buildGoalMarkers(goals){
     goalGroup.add(new THREE.LineSegments(pCrossGeom,pelvisGoalLineMat));
   }
 
+  goalEffects.setRings(pulseRings);
   updateGoalVisibility();
 }
 

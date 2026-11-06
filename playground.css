@@ -243,7 +243,3 @@ a:hover {
     font-size: 11px;
   }
 }
-
-#goal-confetti{position:absolute;inset:0;z-index:3;pointer-events:none}
-#goal-celebration{position:absolute;top:18px;left:50%;transform:translateX(-50%);z-index:4;background:#086a3b;border:2px solid #8fffbb;border-radius:10px;color:#fff;padding:12px 22px;white-space:nowrap;font-size:24px;font-weight:800;box-shadow:0 5px 20px #0004;pointer-events:none}
-@media(max-width:600px){#goal-celebration{top:14px;padding:10px 14px;font-size:19px}}

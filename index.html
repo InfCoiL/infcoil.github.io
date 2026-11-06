@@ -69,7 +69,7 @@
             preload="none"
             poster="assets/v2/s2-long-table-poster.jpg"
           >
-            <source src="assets/v2/s2-long-table.mp4?v=celebration2" type="video/mp4" />
+            <source src="assets/v2/s2-long-table.mp4?v=rings3" type="video/mp4" />
             Your browser does not support HTML5 video.
           </video>
           <figcaption class="video-label">
@@ -85,7 +85,7 @@
             preload="none"
             poster="assets/v2/s2-long-tripod-poster.jpg"
           >
-            <source src="assets/v2/s2-long-tripod.mp4?v=celebration2" type="video/mp4" />
+            <source src="assets/v2/s2-long-tripod.mp4?v=rings3" type="video/mp4" />
             Your browser does not support HTML5 video.
           </video>
           <figcaption class="video-label">
@@ -95,13 +95,13 @@
       </div>
 
       <p class="section-note">
-        Selected qualitative clips with the S=2 planner and C45k controller. Distances denote pelvis displacement; recordings stop at stable goal arrival and use 5-frame display smoothing. Goal rings turn from red to green on arrival, followed by confetti after stable arrival. Inspect raw trajectories in the <a href="playground.html">3D viewer</a>.
+        Selected qualitative clips with the S=2 planner and C45k controller. Distances denote pelvis displacement; recordings stop at stable goal arrival and use 5-frame display smoothing. Goal rings turn from red to green on arrival, with a brief ring pulse after stable arrival. Inspect raw trajectories in the <a href="playground.html">3D viewer</a>.
       </p>
 
       <details class="inline-details">
         <summary>Recording &amp; stopping protocol</summary>
         <p>
-          These clips are qualitative examples separate from the paper&rsquo;s Table 1 benchmark (table transport covers 3.7 m pelvis displacement in 10.8 s; tripod transport covers 3.2 m in 7.2 s). Recording stops once pelvis and object goal errors both stay below 0.3 m and object speed remains below 0.2 m/s for 10 consecutive frames. Five-frame display smoothing is applied for presentation only; raw pelvis and object translations are preserved in the 3D viewer. The rendered videos hold the final recorded pose for an additional 3 s to display the celebration. No policy inference runs in the browser.
+          These clips are qualitative examples separate from the paper&rsquo;s Table 1 benchmark (table transport covers 3.7 m pelvis displacement in 10.8 s; tripod transport covers 3.2 m in 7.2 s). Recording stops once pelvis and object goal errors both stay below 0.3 m and object speed remains below 0.2 m/s for 10 consecutive frames. Five-frame display smoothing is applied for presentation only; raw pelvis and object translations are preserved in the 3D viewer. The rendered videos hold the final recorded pose for an additional 1.5 s to emphasize the goal rings. No policy inference runs in the browser.
         </p>
       </details>
     </section>

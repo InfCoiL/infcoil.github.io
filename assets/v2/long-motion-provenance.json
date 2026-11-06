@@ -37,13 +37,12 @@
     "ring_threshold_m": 0.3,
     "object_dimensions": "XYZ",
     "pelvis_dimensions": "XY",
-    "confetti": "10 consecutive in-tolerance frames with object speed <0.2 m/s",
-    "final_pose_hold_frames": 90,
+    "final_pose_hold_frames": 45,
     "fps": 30,
     "event_manifests": [
       "s2-long-table-events.json",
       "s2-long-tripod-events.json"
     ],
-    "confetti_visual": "210 large colored screen-space pieces and a high-contrast target-arrival banner"
+    "arrival_pulse": "10 consecutive in-tolerance frames with object speed <0.2 m/s; 1.5-second ring pulse"
   }
 }
