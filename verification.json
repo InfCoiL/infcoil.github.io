@@ -103,12 +103,14 @@
   },
   "paper_update_20261107": {
     "pages": 34,
-    "sha256": "13ce51b21d7cab0bb3acd518e5b95e684477920f4c655fea2f9f880ea6a3100d",
+    "sha256": "304ce8afa0d2fcd87f0180c557e2ffabb5820392dcffce4afc1dbc8ecbd6a3cb",
     "changes": [
       "Figure 2 Smallbox/InterMimic status corrected to Failure from raw evidence",
       "Figures 3/4 brighten matched planner/controller rows without timestamps",
       "Figure 3 table replaced with an upright paired episode"
     ],
-    "build_errors_or_undefined": []
+    "build_errors_or_undefined": [],
+    "paper_commit": "80128f8",
+    "merged_upstream": "35e79c8"
   }
 }
