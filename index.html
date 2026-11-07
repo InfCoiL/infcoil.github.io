@@ -51,7 +51,6 @@
       <nav class="paper-links" aria-label="Paper resources">
         <a href="assets/paper.pdf" class="header-btn" target="_blank" rel="noopener">Paper (PDF)</a>
         <button type="button" class="header-btn" disabled aria-disabled="true">Code release pending</button>
-        <a href="playground.html" class="header-btn">3D viewer</a>
         <a href="#citation" class="header-btn">BibTeX</a>
       </nav>
     </header>
@@ -95,13 +94,13 @@
       </div>
 
       <p class="section-note">
-        Selected qualitative clips with the S=2 planner and C45k controller. Distances denote pelvis displacement; recordings stop at stable goal arrival and use 5-frame display smoothing. Goal rings turn from red to green on arrival, with a brief ring pulse after stable arrival. Inspect raw trajectories in the <a href="playground.html">3D viewer</a>.
+        Selected qualitative clips with the S=2 planner and C45k controller. Distances denote pelvis displacement; recordings stop at stable goal arrival and use 5-frame display smoothing. Goal rings turn from red to green on arrival, with a brief ring pulse after stable arrival.
       </p>
 
       <details class="inline-details">
         <summary>Recording &amp; stopping protocol</summary>
         <p>
-          These clips are qualitative examples separate from the paper&rsquo;s Table 1 benchmark (table transport covers 3.7 m pelvis displacement in 10.8 s; tripod transport covers 3.2 m in 7.2 s). Recording stops once pelvis and object goal errors both stay below 0.3 m and object speed remains below 0.2 m/s for 10 consecutive frames. Five-frame display smoothing is applied for presentation only; raw pelvis and object translations are preserved in the 3D viewer. The rendered videos hold the final recorded pose for an additional 1.5 s to emphasize the goal rings. No policy inference runs in the browser.
+          These clips are qualitative examples separate from the paper&rsquo;s Table 1 benchmark (table transport covers 3.7 m pelvis displacement in 10.8 s; tripod transport covers 3.2 m in 7.2 s). Recording stops once pelvis and object goal errors both stay below 0.3 m and object speed remains below 0.2 m/s for 10 consecutive frames. Five-frame display smoothing is applied for presentation only. The rendered videos hold the final recorded pose for an additional 1.5 s to emphasize the goal rings. No policy inference runs in the browser.
         </p>
       </details>
     </section>
@@ -336,7 +335,7 @@
         <summary>Additional object rollouts (Monitor, Floor lamp, Wood chair)</summary>
         <div class="details-body">
           <p class="section-note">
-            Earlier qualitative InfCoiL rollouts across three household objects: monitor (13.3 s), floor lamp (6.7 s), and wood chair (12.8 s). Best trajectories per object can also be inspected in the <a href="playground.html">3D viewer</a>.
+            Earlier qualitative InfCoiL rollouts across three household objects: monitor (13.3 s), floor lamp (6.7 s), and wood chair (12.8 s).
           </p>
 
           <div class="video-grid-3">

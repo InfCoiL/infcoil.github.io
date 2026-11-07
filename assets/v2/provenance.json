@@ -25,5 +25,5 @@
     "preserve_raw_object_translation": true,
     "benchmark_outputs_modified": false
   },
-  "playground": "Recorded raw/smoothed replay; optional MuJoCo kinematic-body/dynamic-object contact sandbox, no learned policy inference"
+  "playground": "Withdrawn 2026-11-07. Former sandbox had no learned planner/controller feedback; playground.html redirects to the homepage."
 }

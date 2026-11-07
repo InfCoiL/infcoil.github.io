@@ -93,5 +93,12 @@
     "bothVideosPlay": true
   },
   "resource_buttons": true,
-  "middot_removed": true
+  "middot_removed": true,
+  "viewer_withdrawal_20261107": {
+    "status": "withdrawn",
+    "homepage_entry_removed": true,
+    "direct_url_redirects_home": true,
+    "viewer_scripts_loaded": false,
+    "previous_viewer_checks_are_historical": true
+  }
 }

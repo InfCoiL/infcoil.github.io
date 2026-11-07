@@ -10,9 +10,11 @@ No build step is required. Local preview: `python serve.py --port 8768 --directo
 
 Long transport recordings use the S=2 epoch-500 planner with C45k controller.
 Each stops after 10 frames with pelvis XY / object XYZ errors below 0.3 m and
-object speed below 0.2 m/s. Display smoothing is unchanged; raw replay is included.
+object speed below 0.2 m/s. Display smoothing is unchanged.
 These selected examples are not a new benchmark result. Earlier videos remain
-available. The MuJoCo sandbox runs object physics, not learned-policy inference.
+available. The interactive viewer was withdrawn on 2026-11-07: it replayed
+body motion and simulated the object without planner/controller feedback.
+Do not republish it until the learned planner and controller run in the loop.
 
 See assets/v2/long-motion-provenance.json for recording metadata and
 assets/v2/motions.json for source hashes. Library licenses are under vendor/.
@@ -21,7 +23,7 @@ assets/v2/motions.json for source hashes. Library licenses are under vendor/.
 
 White single-column academic layout: title and authors, two transport videos,
 method and framework, full Table 1, collapsed earlier comparisons, and BibTeX.
-The 3D/MuJoCo viewer is a separate page. No build tools or external fonts.
+The former viewer URL redirects to the project page. No build tools or external fonts.
 
 Editable files: index.html, styles.css, app.js and playground.css.
 The paper, all 40 table values, author metadata and existing media were preserved.
