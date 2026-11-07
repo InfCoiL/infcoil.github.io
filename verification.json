@@ -123,5 +123,20 @@
     "caption_unchanged": true,
     "build_errors_or_undefined": [],
     "merged_upstream": "ba86962bd6c5cc8b0d029f704bef27dbc095dd74"
+  },
+  "suitcase_frame_update_20261107": {
+    "paper_commit": "e179eef",
+    "pages": 34,
+    "figure2_page": 8,
+    "paper_sha256": "32de57548889465c4004bae04730d70d9258b8b049f6759e0425bd6b2a4b8dfc",
+    "build_exit": 0,
+    "render_exit": 0,
+    "errors_or_undefined": [],
+    "merged_upstream": "5b119092b6c3272d6a74deeadb83212f156f9a29",
+    "last_frame_before": 377,
+    "last_frame_after": 340,
+    "same_trajectory": true,
+    "status_unchanged": true,
+    "other_panels_unchanged": true
   }
 }
