@@ -138,5 +138,15 @@
     "same_trajectory": true,
     "status_unchanged": true,
     "other_panels_unchanged": true
+  },
+  "bibtex_update_20261107": {
+    "entry_type": "inproceedings",
+    "citation_key": "zou2026infcoil",
+    "booktitle": "Advances in Neural Information Processing Systems",
+    "year": 2026,
+    "title_and_author_order_preserved": true,
+    "method_name_case_protected": true,
+    "copy_source_matches_displayed_entry": true,
+    "paper_metadata_checked_at": "6a5ebad"
   }
 }

@@ -260,8 +260,8 @@
     "sha256": "62aab1520756e1b197f99facd2823e2fa06807eb69ce2d0638e72cc1e77b1af3"
   },
   "index.html": {
-    "bytes": 19634,
-    "sha256": "7363ce8c7c1c9bc7989df696b8f43b4a01ab1e7be2090a2e716f0bf0bbc2c0a4"
+    "bytes": 19721,
+    "sha256": "bc67575ea86680c49dc7b4ab4ba196bec06434861d29b72015e6111aba221147"
   },
   "playground.css": {
     "bytes": 3561,
@@ -320,7 +320,7 @@
     "sha256": "e7fca2fe9e7670a828af9b28084669a5909445b7f36f1f26cee9bf8f2961c32c"
   },
   "verification.json": {
-    "bytes": 4025,
-    "sha256": "c9147dc0eaf9ab84f680a2305f6200860147bbda4874d17890709046379caf4d"
+    "bytes": 4399,
+    "sha256": "8f3ebe5d3645546833837d2c0725ab210eb7660c0d792097c159f72c9af08e59"
   }
 }
