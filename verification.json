@@ -112,5 +112,16 @@
     "build_errors_or_undefined": [],
     "paper_commit": "80128f8",
     "merged_upstream": "35e79c8"
+  },
+  "figure2_style_update_20261107": {
+    "paper_commit": "c620dbc",
+    "pages": 34,
+    "sha256": "0827936506c42dc6be482d4d908d343112d86146263072f2efad22b2f4f2ee23",
+    "figure2_page": 7,
+    "style": "Same studio renderer as Figures 3 and 4: white background, teal humanoids, coral objects, soft shadows",
+    "raw_trajectories_and_statuses_preserved": true,
+    "caption_unchanged": true,
+    "build_errors_or_undefined": [],
+    "merged_upstream": "ba86962bd6c5cc8b0d029f704bef27dbc095dd74"
   }
 }
